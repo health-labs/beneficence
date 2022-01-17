@@ -1,7 +1,9 @@
 import Header from "../components/Header";
 import mainImg from "../assets/main-img.svg";
+import { mpVariables } from "../const/variables";
 
 function Home() {
+  const mpCampaigns = []
   return (
     <div className="main-outer">
       <div className="main-inner">
@@ -11,27 +13,51 @@ function Home() {
         <div className="main-inner-body row">
           <div className="main-inner-heading row-2">
             <div className="main-inner-heading-text dark-blue">
-              Medical Emergency?
+              mpVariables.mpSec1Heading
             </div>
             <div className="main-inner-heading-text sky-blue">
-              Get help now!
+              mpVariables.mpSec1Heading2
             </div>
           </div>
           <div className="main-inner-body-set row-2">
             <div className="main-inner-body-text row-2">
-              <span>
-                Start a fundraiser for yourself or your loved ones and get help
-                for your medical emergency from a community that loves giving
-                back.
+              <span>mpVariables.mpSec1Body</span>
+              <span className="get-started-txt mt-3">
+                {" "}
+                mpVariables.mpSec1Body2{" "}
               </span>
-              <span className="get-started-txt mt-3">Get started now</span>
-              <span className="buttons-main"></span>
+              <span className="buttons-main">
+                <button className="btn"> mpVariables.mpSec1Btn1 </button>
+                <button className="btn">mpVariables.mpSec1Btn2</button>
+              </span>
             </div>
             <div className="main-inner-body-img row-2">
               <img src={mainImg}></img>
             </div>
           </div>
         </div>
+        <div className="main-inner-body row">
+          <div className="main-inner-body-set col-1">
+            <div className="main-inner-body-text">
+              <span>mpVariables.mpSec2Body</span>
+              <span className="get-started-txt mt-3">
+                mpVariables.mpSec2Body2
+              </span>
+              <span className="buttons-main">
+                <button className="btn">
+                  mpVariables.mpSec2Btn <span> {">"} </span>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="main-inner-body row">
+          <h3>Ongoing Campaigns</h3>
+          { mpCampaigns.map((campaign) => {
+          <div className="main-inner-body-set col-1">
+            
+          </div>}
+          )}
       </div>
     </div>
   );
