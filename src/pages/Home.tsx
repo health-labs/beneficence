@@ -1,9 +1,9 @@
 import Header from "../components/Header";
-import mainImg from "../assets/main-img.svg";
+// import mainImg from "../assets/main-img.svg";
 import { mpVariables } from "../const/variables";
 
 function Home() {
-  const mpCampaigns = []
+  const mpCampaigns = [];
   return (
     <div className="main-outer">
       <div className="main-inner">
@@ -53,11 +53,10 @@ function Home() {
         </div>
         <div className="main-inner-body row">
           <h3>Ongoing Campaigns</h3>
-          { mpCampaigns.map((campaign) => {
-          <div className="main-inner-body-set col-1">
-            
-          </div>}
-          )}
+          {mpCampaigns.map((campaign) => {
+            <div className="main-inner-body-set col-1"></div>;
+          })}
+        </div>
       </div>
     </div>
   );
