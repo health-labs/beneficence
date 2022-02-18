@@ -1,4 +1,10 @@
-const MpCampaignCard = (props) => {
+type CampaignCardProps = {
+  imgSrc?: string;
+  title?: string;
+  description?: string;
+  link?: string;
+};
+const MpCampaignCard = (props: CampaignCardProps) => {
   const { imgSrc, title, description, link } = props;
   return (
     <div className="campaign-outer-box">
