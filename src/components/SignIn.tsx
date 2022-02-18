@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from 'react';
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { useWallet } from '@solana/wallet-adapter-react';
 
 function SignIn() {
-  return (
-    <div>
-      <div className="sign-in-container">
-        <div className="sign-in-header-text">Sign in</div>
-      </div>
-    </div>
-  );
-}
+  const { connected } = useWallet();
 
+  useEffect(() => {
+    console.log(`Connection status: ${connected}`);
+  }, [connected]);
+
+  return <WalletMultiButton />;
+}
 export default SignIn;
