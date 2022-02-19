@@ -3,6 +3,7 @@ import React from 'react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import logo from '../assets/logo.svg';
 import SignIn from './SignIn';
+import logoSm from '../assets/bene-logo-solo.svg';
 
 const classNames = (...classes: any) => {
   return classes.filter(Boolean).join(' ');
@@ -49,18 +50,20 @@ function Header() {
                 </Disclosure.Button>
               </div>
 
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
                 <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden h-8 w-auto"
-                    src={logo}
-                    alt="Beneficence"
-                  />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src={logo}
-                    alt="Beneficence"
-                  />
+                  <a href="/">
+                    <img
+                      className="block lg:hidden h-8 w-auto"
+                      src={logoSm}
+                      alt="Beneficence"
+                    />
+                    <img
+                      className="hidden lg:block h-8 w-auto"
+                      src={logo}
+                      alt="Beneficence"
+                    />
+                  </a>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
@@ -70,9 +73,9 @@ function Header() {
                         href={opt.link}
                         className={classNames(
                           opt.active
-                            ? 'bg-blue-900 text-white'
-                            : 'text-blue-700 hover:text-blue-900 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                            ? 'text-blue-900'
+                            : 'text-bene-nav-blue hover:text-blue-900 hover:text-white',
+                          'px-3 py-2 rounded-md text-xl font-semibold tracking-wide transition duration-150 ease-in-out'
                         )}>
                         {opt.item}
                       </a>
@@ -96,8 +99,8 @@ function Header() {
                   className={classNames(
                     opt.active
                       ? 'bg-blue-900 text-white'
-                      : 'text-blue-300 hover:bg-blue-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                      : 'text-bene-nav-blue hover:text-blue-900 hover:text-white',
+                    'px-3 py-2 rounded-md text-sm font-medium'
                   )}>
                   {opt.item}
                 </Disclosure.Button>
