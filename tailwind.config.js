@@ -53,6 +53,7 @@ module.exports = {
         'cust-30': '30px',
         'cust-32': '32px',
         'cust-34': '34px',
+        'cust-45': '45px',
 
         'beat-1': '-4.5vw',
       },
@@ -66,7 +67,11 @@ module.exports = {
         whole: '100vw !important',
       },
       maxWidth: {
+        'em-15': '15em',
         'em-10': '10em',
+        'em-5': '5em',
+        'em-7': '7em',
+        'em-3': '3em',
       },
       borderRadius: {
         'bene-1': '22px',

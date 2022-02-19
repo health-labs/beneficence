@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-interface ButtonProps {
-  text?: string;
-}
-const Button = (props: ButtonProps) => {
-  const { text } = props;
-  return (
-    <div>
-      <button
-        className="btn p-cust-btn bg-bene-dark-blue text-white font-semibold rounded-bene-1"
-        type="button">
-        {text}
-      </button>
-    </div>
-  );
+type ButtonProps = {
+  linkto: string;
+  text: string;
 };
+export default function Button(props: ButtonProps) {
+  const { text, linkto } = props;
+  const onBtnClick = () => {
+    window.location.href = linkto;
+  };
 
-export default Button;
+  return (
+    <button
+      className="btn p-cust-btn bg-bene-dark-blue text-white font-semibold rounded-bene-1 animation-pulse"
+      type="button"
+      onClick={() => onBtnClick()}>
+      {text}
+    </button>
+  );
+}
