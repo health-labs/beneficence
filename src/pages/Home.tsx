@@ -6,10 +6,39 @@ import Button from '../components/Button';
 import childImg from '../assets/mp-cancer-child.svg';
 import wavySmall from '../assets/wavy-small.svg';
 import MpCampaignCard from '../components/MpCampaignCard';
+import SocialStrip from '../components/SocialStrip';
+import { CampaignCardProps } from '../types/Campaign';
 
 function Home() {
-  const mpCampaigns: MpCampaigns[] = [];
-  class MpCampaigns {}
+  const mpCampaigns: CampaignCardProps[] = [
+    {
+      imgSrc: childImg,
+      title: "My child has Cancer and it's getting worse",
+      description:
+        'Help us fight cancer. Help us save a life. Any help you can give will help us. Please donate to our campaign.',
+      link: 'https://www.google.com/cancer',
+      angelsCount: 360,
+      campaignId: '100001',
+    },
+    {
+      imgSrc: childImg,
+      title: 'Thalassemia is taking over my child. Help us fight it',
+      description:
+        'We are fighting for the good of my child. We are out of funds. It is now our last chance. Help us.',
+      link: 'https://www.google.com/thalassemia',
+      angelsCount: 400,
+      campaignId: '100002',
+    },
+    {
+      imgSrc: childImg,
+      title: 'My child has stage 3 disease and we need financial support',
+      description:
+        'Things have been going wrong past couple of months. Help us. We hope god will be with us.',
+      link: 'https://www.google.com/stage3',
+      angelsCount: 500,
+      campaignId: '100003',
+    },
+  ];
   return (
     <div className="main-outer">
       <div className="main-inner">
@@ -74,23 +103,28 @@ function Home() {
         </div>
         <div className="mp-ongoing-campaign-body row text-left p-10 px-20">
           <h3 className="text-bxl font-semibold mb-6">Ongoing Campaigns</h3>
-          <MpCampaignCard
-            imgSrc=""
-            title="asds as not real"
-            description="Asdas lorem ipsum this is not a real description. Skip the reading. Thank you laks kaps ajsd as d s"
-            link="As"
-            angelsCount={120}
-            campaignId="101909"
-          />
-          {mpCampaigns.map((campaign) => {
-            return;
-            <div className="main-inner-body-set col-1">Name</div>;
-          })}
+          <div className="on-cmp-row flex justify-between">
+            {mpCampaigns.map((campaign) => {
+              return (
+                <MpCampaignCard
+                  imgSrc={campaign.imgSrc}
+                  title={campaign.title}
+                  description={campaign.description}
+                  link={campaign.link}
+                  angelsCount={campaign.angelsCount}
+                  campaignId={campaign.campaignId}
+                />
+              );
+            })}
+          </div>
         </div>
         <div className="mp-quote-box-outer row text-center">
-          <div className="mp-quote-inner p-per-15 bg-no-repeat bg-bene-quote w-full h-full font-bold text-bxl text-white">
-            {mpVariables.mpQuote}
+          <div className="mp-quote-inner p-per-15 bg-no-repeat bg-bene-quote w-full h-full font-bold text-bxl text-bene-dark-blue max-h-px-425">
+            <div className="mp-quote-text">{mpVariables.mpQuote}</div>
           </div>
+        </div>
+        <div className="mp-btm-strip-outer">
+          <SocialStrip />
         </div>
       </div>
     </div>

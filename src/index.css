@@ -17,7 +17,7 @@ code {
 }
 
 .wallet-adapter-button.wallet-adapter-button-trigger {
-  border-radius: 22px;
+  border-radius: 14px;
   background: rgb(0, 61, 132);
   background-image: none;
 }
@@ -33,4 +33,8 @@ code {
 .wallet-adapter-button.wallet-adapter-modal-collapse-button.false,
 .wallet-adapter-button.wallet-adapter-modal-collapse-button.wallet-adapter-modal-collapse-button-active {
   background-color: rgb(87, 128, 176);
+}
+
+.sign-in-btn > button {
+  max-height: 37px;
 }

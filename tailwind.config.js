@@ -88,6 +88,11 @@ module.exports = {
         'em-5': '5em',
         'em-7': '7em',
         'em-3': '3em',
+
+        'px-30': '30px',
+      },
+      maxHeight: {
+        'px-425': '425px',
       },
       borderRadius: {
         'bene-1': '22px',

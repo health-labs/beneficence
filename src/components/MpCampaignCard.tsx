@@ -7,15 +7,7 @@ import { campColors } from '../const/campColors';
 import { formatTitle, generateRandomCardBg } from '../utils/util';
 import dashedsep from '../assets/dashedsep.svg';
 import DonateButtonSmall from './DonateButtonSmall';
-
-interface CampaignCardProps {
-  imgSrc: string;
-  title: string;
-  description: string;
-  link: string;
-  angelsCount: number;
-  campaignId: string;
-}
+import { CampaignCardProps } from '../types/Campaign';
 
 function MpCampaignCard(props: CampaignCardProps) {
   const { imgSrc, title, description, link, angelsCount, campaignId } = props;
