@@ -1,3 +1,4 @@
+// Formatted content for main page
 const mpVariables = {
   mpSec1Heading: 'Medical Emergency?',
   mpSec1Heading2: 'Get help now!',
@@ -12,7 +13,10 @@ const mpVariables = {
   mpSec2Body:
     'Every bit of financial help can be helpful in getting someone the right treatment and increasing their chances of living.',
   mpSec2Body2: 'Want to get involved?',
-  mpSec2Btn: 'Learn how',
+  mpSec2Btn: 'Learn how >',
+  mpQuote:
+    'But we are empathy machines, and one of the most lasting and true ways of finding meaning is to actually be of service',
+  mpQuoteBy: 'Hank Green',
 };
 
 export { mpVariables };

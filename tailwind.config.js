@@ -16,10 +16,24 @@ module.exports = {
         'bene-dark-blue': '#003D84',
         'bene-very-light-blue': '#AEE1F7',
         'bene-nav-blue': '#015EA1',
+
+        'bene-cmp-sky-blue': 'rgba(22, 138, 244, 0.2)',
+        'bene-cmp-violet': 'rgba(93, 22, 244, 0.2)',
+        'bene-cmp-green': 'rgba(74, 222, 128, 0.2)',
+        'bene-cmp-rosy-red': 'rgba(251, 113, 133, 0.2)',
+        'bene-cmp-emerald': 'rgba(52, 211, 153, 0.2)',
+        'bene-cmp-blue': 'rgba(96, 165, 250, 0.2)',
+        'bene-cmp-purple': 'rgba(192, 132, 252, 0.2)',
+        'bene-cmp-pink': 'rgba(244, 114, 182, 0.2)',
+        'bene-cmp-cyan': 'rgba(34, 211, 238, 0.2)',
+        'bene-cmp-grey': 'rgba(148, 163, 184, 0.2)',
+        'bene-cmp-violet-lt': 'rgba(232, 121, 249, 0.2)',
       },
       fontSize: {
         '7xl': '2.6rem',
         bxl: '1.5rem',
+        cmpheading: '1rem',
+        'cmpdesc-shrt': '0.7rem',
       },
       spacing: {
         'per-7': '7%',
@@ -62,11 +76,13 @@ module.exports = {
       },
       padding: {
         'cust-btn': '10px',
+        'cust-xx': '14px',
       },
       minWidth: {
         whole: '100vw !important',
       },
       maxWidth: {
+        'em-16': '16em',
         'em-15': '15em',
         'em-10': '10em',
         'em-5': '5em',
@@ -75,6 +91,16 @@ module.exports = {
       },
       borderRadius: {
         'bene-1': '22px',
+        'bene-c-1': '24px',
+        'bene-c-2': '14px',
+      },
+      backgroundImage: {
+        'bene-wavy-bg': 'url(./assets/wavy-bg-big.svg)',
+        'bene-beat-bg': 'url(./assets/bene-beat.svg)',
+        'bene-quote': 'url(./assets/mp-quote-bg.png)',
+      },
+      boxShadow: {
+        'c-1': '0px 6px 33px rgba(0, 0, 0, 0.16)',
       },
     },
   },

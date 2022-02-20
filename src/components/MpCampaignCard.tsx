@@ -1,36 +1,69 @@
-type CampaignCardProps = {
-  imgSrc?: string;
-  title?: string;
-  description?: string;
-  link?: string;
-};
-const MpCampaignCard = (props: CampaignCardProps) => {
-  const { imgSrc, title, description, link } = props;
+import React from 'react';
+import share from '../assets/share.svg';
+import angels from '../assets/angels.svg';
+import donate from '../assets/donate.svg';
+import campimg1 from '../assets/campimg-1.png';
+import { campColors } from '../const/campColors';
+import { formatTitle, generateRandomCardBg } from '../utils/util';
+import dashedsep from '../assets/dashedsep.svg';
+import DonateButtonSmall from './DonateButtonSmall';
+
+interface CampaignCardProps {
+  imgSrc: string;
+  title: string;
+  description: string;
+  link: string;
+  angelsCount: number;
+  campaignId: string;
+}
+
+function MpCampaignCard(props: CampaignCardProps) {
+  const { imgSrc, title, description, link, angelsCount, campaignId } = props;
   return (
-    <div className="campaign-outer-box">
+    <div className="campaign-outer-box rounded-bene-c-1 shadow-c-1 max-w-xs">
       <div className="campaign-img">
-        <img src={imgSrc}></img>
+        <img src={campimg1} alt={title} className=" rounded-t-bene-c-1" />
       </div>
-      <div className="campaign-body">
-        <div className="campaign-title">{title}</div>
-        <div className="dashed-separator"></div>
-        <div className="campaign-description">{description}</div>
-        <div className="campaign-progress">
-          <div className="campaign-progress-percent">
-            <div className="campaign-total-val"></div>
-            <div className="campaign-progress-bar">
-              <div className="campaign-progress-bar-inner"></div>
-            </div>
+      <div className="campaign-body p-2">
+        <div
+          className={`campaign-body-inner-box rounded-bene-c-2 p-2 bg-bene-cmp-${generateRandomCardBg()}`}>
+          <div className="campaign-title text-cmpheading font-extrabold">
+            {formatTitle(title)}
           </div>
-          <div className="interaction-opt">
-            <div className="campaign-share"></div>
-            <div className="campaign-angels"></div>
-            <div className="campaign-donate"></div>
+          <div className="dashed-separator">
+            <img src={dashedsep} alt="separator" className="w-half mt-2" />
+          </div>
+          <div className="campaign-description my-2 text-cmpdesc-shrt">
+            {description}
+          </div>
+          <div className="campaign-progress">
+            <div className="campaign-progress-percent">
+              <div className="campaign-total-val"> </div>
+              <div className="campaign-progress-bar">
+                <div className="campaign-progress-bar-inner"> </div>
+              </div>
+            </div>
+            <div className="interaction-opt flex justify-between">
+              <div className="interaction-opt-inner-left flex my-auto mx-0">
+                <div className="campaign-share mr-4">
+                  <img src={share} alt="share" />
+                </div>
+                <div className="campaign-angels flex items-center">
+                  <img src={angels} alt="angels" />
+                  <div className="campaign-angels-val text-bene-dark-blue ml-2">
+                    {angelsCount}
+                  </div>
+                </div>
+              </div>
+              <div className="interaction-opt-inner-right">
+                <DonateButtonSmall campaignid={campaignId} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default MpCampaignCard;

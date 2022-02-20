@@ -12,7 +12,7 @@ export default function Button(props: ButtonProps) {
 
   return (
     <button
-      className="btn p-cust-btn bg-bene-dark-blue text-white font-semibold rounded-bene-1 animation-pulse"
+      className="btn p-cust-btn px-cust-xx bg-bene-dark-blue text-white font-semibold rounded-bene-1 animation-pulse"
       type="button"
       onClick={() => onBtnClick()}>
       {text}

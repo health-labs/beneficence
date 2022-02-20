@@ -15,3 +15,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.wallet-adapter-button.wallet-adapter-button-trigger {
+  border-radius: 22px;
+  background: rgb(0, 61, 132);
+  background-image: none;
+}
+
+.wallet-adapter-modal-wrapper.wallet-adapter-modal-wrapper-no-logo {
+  background: rgb(0, 61, 132);
+  background: #2b32b2;
+  background: -webkit-linear-gradient(to right, #232990, #247aae);
+  background: linear-gradient(to right, #232990, #247aae);
+}
+
+.wallet-adapter-modal-list > li > button,
+.wallet-adapter-button.wallet-adapter-modal-collapse-button.false,
+.wallet-adapter-button.wallet-adapter-modal-collapse-button.wallet-adapter-modal-collapse-button-active {
+  background-color: rgb(87, 128, 176);
+}
