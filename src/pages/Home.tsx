@@ -8,6 +8,7 @@ import wavySmall from '../assets/wavy-small.svg';
 import MpCampaignCard from '../components/MpCampaignCard';
 import SocialStrip from '../components/SocialStrip';
 import { CampaignCardProps } from '../types/Campaign';
+import Footer from '../components/Footer';
 
 function Home() {
   const mpCampaigns: CampaignCardProps[] = [
@@ -102,8 +103,10 @@ function Home() {
           </div>
         </div>
         <div className="mp-ongoing-campaign-body row text-left p-10 px-20">
-          <h3 className="text-bxl font-semibold mb-6">Ongoing Campaigns</h3>
-          <div className="on-cmp-row flex justify-between">
+          <h3 className="text-bxl font-semibold text-center sm:text-left mb-11 md:mb-6 ">
+            Ongoing Campaigns
+          </h3>
+          <div className="on-cmp-row justify-between grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:">
             {mpCampaigns.map((campaign) => {
               return (
                 <MpCampaignCard
@@ -118,6 +121,7 @@ function Home() {
             })}
           </div>
         </div>
+
         <div className="mp-quote-box-outer row text-center">
           <div className="mp-quote-inner p-per-15 bg-no-repeat bg-bene-quote w-full h-full font-bold text-bxl text-bene-dark-blue max-h-px-425">
             <div className="mp-quote-text">{mpVariables.mpQuote}</div>

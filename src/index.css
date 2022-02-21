@@ -38,3 +38,7 @@ code {
 .sign-in-btn > button {
   max-height: 37px;
 }
+
+.wallet-adapter-modal-button-close svg {
+  fill: #e0e0e1 !important;
+}

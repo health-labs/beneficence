@@ -54,7 +54,7 @@ function Header() {
                 <div className="flex-shrink-0 flex items-center">
                   <a href="/">
                     <img
-                      className="block lg:hidden h-8 w-auto"
+                      className="block lg:hidden h-8 w-auto transform hover:rotate-360 transition duration-1000 ease-in"
                       src={logoSm}
                       alt="Beneficence"
                     />

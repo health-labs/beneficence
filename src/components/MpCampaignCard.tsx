@@ -12,7 +12,7 @@ import { CampaignCardProps } from '../types/Campaign';
 function MpCampaignCard(props: CampaignCardProps) {
   const { imgSrc, title, description, link, angelsCount, campaignId } = props;
   return (
-    <div className="campaign-outer-box rounded-bene-c-1 shadow-c-1 max-w-xs">
+    <div className="campaign-outer-box rounded-bene-c-1 shadow-c-1 max-w-xs m-auto md:m-0">
       <div className="campaign-img">
         <img src={campimg1} alt={title} className=" rounded-t-bene-c-1" />
       </div>

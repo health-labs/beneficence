@@ -28,6 +28,9 @@ module.exports = {
         'bene-cmp-cyan': 'rgba(34, 211, 238, 0.2)',
         'bene-cmp-grey': 'rgba(148, 163, 184, 0.2)',
         'bene-cmp-violet-lt': 'rgba(232, 121, 249, 0.2)',
+
+        'bene-nav-opt': 'rgba(255, 255, 255, 0.55)',
+        'bene-nav-hopt': 'rgba(255, 255, 255, 0.75)',
       },
       fontSize: {
         '7xl': '2.6rem',
@@ -73,13 +76,21 @@ module.exports = {
       },
       margin: {
         'cust-32': '32px',
+        'e-1': '1em',
       },
       padding: {
         'cust-btn': '10px',
         'cust-xx': '14px',
+
+        'cust-r-2': '2em',
+        'cust-r-3': '3em',
+        'cust-r-4': '4em',
+        'cust-r-5': '5em',
+        'cust-r-6': '6em',
       },
       minWidth: {
         whole: '100vw !important',
+        'per-55': '40%',
       },
       maxWidth: {
         'em-16': '16em',
@@ -88,6 +99,9 @@ module.exports = {
         'em-5': '5em',
         'em-7': '7em',
         'em-3': '3em',
+        'em-1-hf': '1.5em',
+
+        content: 'max-content',
 
         'px-30': '30px',
       },
@@ -107,6 +121,7 @@ module.exports = {
       boxShadow: {
         'c-1': '0px 6px 33px rgba(0, 0, 0, 0.16)',
       },
+      rotate: { 360: '360deg' },
     },
   },
   variants: {
