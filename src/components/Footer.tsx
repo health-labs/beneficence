@@ -72,15 +72,16 @@ function Footer() {
       </div>
       <div className="footer-mid">
         <div className="footer-mid-right absolute mt-0 mr-e-1 right-1">
-          <div className="flex footer-nav-set-fund hover:scale-110 group cursor-pointer max-w text-white text-left mb-cust-18 font-semibold text-left hover:text-bene-nav-hopt hover:justify-between transition duration-150 ease-out">
-            <span className="transform transition duration-200 ease-in-out">
-              Set up a fund now
-            </span>
-            <span className="w-2 transform transition duration-200 ease-in-out" />
-            <a
-              href="/start-a-fund"
-              className="start-fund-creation footer-nav group-hover:animate-none tracking-wide animate-ping">
-              {'>'}
+          <div className="flex footer-nav-set-fund group group cursor-pointer max-w text-white text-left mb-cust-18 font-semibold text-left hover:text-bene-nav-hopt hover:justify-between transition duration-150 ease-out">
+            <a href="/start-a-fund" className="footer-nav-set-fund-link">
+              <span className="transform transition duration-200 ease-in-out mr-2">
+                Set up a fund now
+              </span>
+              <a
+                href="/start-a-fund"
+                className="start-fund-creation footer-nav group-hover:animate-none tracking-wide animate-ping">
+                {'>'}
+              </a>
             </a>
           </div>
           <div className="footer-fiat text-white flex text-xs">

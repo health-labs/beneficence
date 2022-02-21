@@ -75,7 +75,7 @@ function Header() {
                           opt.active
                             ? 'text-blue-900'
                             : 'text-bene-nav-blue hover:text-blue-900 hover:text-white',
-                          'px-3 py-2 rounded-md text-xl font-semibold tracking-wide transition duration-150 ease-in-out'
+                          'px-3 py-2 rounded-md text-xl font-semibold transform hover:scale-105 transition duration-450 ease-in'
                         )}>
                         {opt.item}
                       </a>

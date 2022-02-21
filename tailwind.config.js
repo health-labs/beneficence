@@ -125,6 +125,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      scale: ['group-hover', 'hover'],
+      animation: ['hover', 'focus', 'group-hover'],
+      margin: ['hover', 'focus', 'group-hover'],
+    },
   },
 };

@@ -14,10 +14,14 @@ function DonateButtonSmall(props: DonateBtnProps) {
   return (
     <button
       type="button"
-      className="campaign-donate p-cust-btn px-cust-xx bg-bene-dark-blue text-white font-semibold rounded-bene-1 animation-pulse"
+      className="group campaign-donate p-cust-btn px-cust-xx bg-bene-dark-blue text-white font-semibold rounded-bene-1 animation-pulse"
       onClick={() => onDonateBtnClick()}>
-      <div className="donate-button-small-inner">
-        <img src={donate} alt="donate" />
+      <div className="donate-button-small-inner ">
+        <img
+          className="transform group-hover:scale-105 transition duration-350 ease-out"
+          src={donate}
+          alt="donate"
+        />
       </div>
     </button>
   );
