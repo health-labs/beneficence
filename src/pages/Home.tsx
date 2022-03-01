@@ -2,13 +2,13 @@ import React from 'react';
 // import mainImg from '../assets/main-img.svg';
 import { mpVariables } from '../const/variables';
 import beneBeat from '../assets/bene-beat.svg';
-import Button from '../components/Button';
+import Button from '../components/Button/Button';
 import childImg from '../assets/mp-cancer-child.svg';
 import wavySmall from '../assets/wavy-small.svg';
-import MpCampaignCard from '../components/MpCampaignCard';
-import SocialStrip from '../components/SocialStrip';
+import MpCampaignCard from '../components/Cards/MpCampaignCard';
+import SocialStrip from '../components/Socials/SocialStrip';
 import { CampaignCardProps } from '../types/Campaign';
-import Footer from '../components/Footer';
+import Footer from '../components/Nav/Footer';
 
 function Home() {
   const mpCampaigns: CampaignCardProps[] = [
@@ -29,6 +29,33 @@ function Home() {
       link: 'https://www.google.com/thalassemia',
       angelsCount: 400,
       campaignId: '100002',
+    },
+    {
+      imgSrc: childImg,
+      title: 'My child has stage 3 disease and we need financial support',
+      description:
+        'Things have been going wrong past couple of months. Help us. We hope god will be with us.',
+      link: 'https://www.google.com/stage3',
+      angelsCount: 500,
+      campaignId: '100003',
+    },
+    {
+      imgSrc: childImg,
+      title: 'My child has stage 3 disease and we need financial support',
+      description:
+        'Things have been going wrong past couple of months. Help us. We hope god will be with us.',
+      link: 'https://www.google.com/stage3',
+      angelsCount: 500,
+      campaignId: '100003',
+    },
+    {
+      imgSrc: childImg,
+      title: 'My child has stage 3 disease and we need financial support',
+      description:
+        'Things have been going wrong past couple of months. Help us. We hope god will be with us.',
+      link: 'https://www.google.com/stage3',
+      angelsCount: 500,
+      campaignId: '100003',
     },
     {
       imgSrc: childImg,
@@ -74,9 +101,14 @@ function Home() {
                   <Button
                     linkto="/start-a-fund"
                     text={mpVariables.mpSec1Btn1}
+                    className="w-vw-08"
                   />
                   <div className="mt-6 md:invisible" />
-                  <Button linkto="/explore" text={mpVariables.mpSec1Btn2} />
+                  <Button
+                    linkto="/explore"
+                    text={mpVariables.mpSec1Btn2}
+                    className="w-vw-08"
+                  />
                 </span>
               </div>
             </div>
@@ -106,7 +138,7 @@ function Home() {
           <h3 className="text-bxl font-semibold text-center sm:text-left mb-11 md:mb-6 ">
             Ongoing Campaigns
           </h3>
-          <div className="on-cmp-row justify-between grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:">
+          <div className="on-cmp-row snap-xrelative w-full flex gap-6 snap-x overflow-x-auto">
             {mpCampaigns.map((campaign) => {
               return (
                 <MpCampaignCard

@@ -1,7 +1,7 @@
 import React from 'react';
-import footBeat from '../assets/foot-beat.svg';
-import beneMail from '../assets/bene-mail.svg';
-import beneMsg from '../assets/bene-msg.svg';
+import footBeat from '../../assets/foot-beat.svg';
+import beneMail from '../../assets/bene-mail.svg';
+import beneMsg from '../../assets/bene-msg.svg';
 
 const footerNav = [
   {

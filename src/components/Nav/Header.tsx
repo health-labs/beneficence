@@ -1,9 +1,9 @@
 import { Disclosure } from '@headlessui/react';
 import React from 'react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import logo from '../assets/logo.svg';
-import SignIn from './SignIn';
-import logoSm from '../assets/bene-logo-solo.svg';
+import logo from '../../assets/logo.svg';
+import SignIn from '../Signin/SignIn';
+import logoSm from '../../assets/bene-logo-solo.svg';
 
 const classNames = (...classes: any) => {
   return classes.filter(Boolean).join(' ');

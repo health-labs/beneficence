@@ -1,5 +1,5 @@
 import React from 'react';
-import donate from '../assets/donate.svg';
+import donate from '../../assets/donate.svg';
 
 interface DonateBtnProps {
   campaignid: string;

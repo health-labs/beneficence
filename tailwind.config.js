@@ -73,6 +73,8 @@ module.exports = {
         'cust-45': '45px',
 
         'beat-1': '-4.5vw',
+
+        'vw-80': '80vw',
       },
       margin: {
         'cust-32': '32px',
@@ -104,6 +106,7 @@ module.exports = {
         content: 'max-content',
 
         'px-30': '30px',
+        'px-l': '1024px',
       },
       maxHeight: {
         'px-425': '425px',

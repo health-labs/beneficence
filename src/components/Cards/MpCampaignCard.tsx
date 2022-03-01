@@ -1,18 +1,18 @@
 import React from 'react';
-import share from '../assets/share.svg';
-import angels from '../assets/angels.svg';
-import donate from '../assets/donate.svg';
-import campimg1 from '../assets/campimg-1.png';
-import { campColors } from '../const/campColors';
-import { formatTitle, generateRandomCardBg } from '../utils/util';
-import dashedsep from '../assets/dashedsep.svg';
-import DonateButtonSmall from './DonateButtonSmall';
-import { CampaignCardProps } from '../types/Campaign';
+import share from '../../assets/share.svg';
+import angels from '../../assets/angels.svg';
+import donate from '../../assets/donate.svg';
+import campimg1 from '../../assets/campimg-1.png';
+import { campColors } from '../../const/campColors';
+import { formatTitle, generateRandomCardBg } from '../../utils/util';
+import dashedsep from '../../assets/dashedsep.svg';
+import DonateButtonSmall from '../Button/DonateButtonSmall';
+import { CampaignCardProps } from '../../types/Campaign';
 
 function MpCampaignCard(props: CampaignCardProps) {
   const { imgSrc, title, description, link, angelsCount, campaignId } = props;
   return (
-    <div className="campaign-outer-box rounded-bene-c-1 shadow-c-1 max-w-xs m-auto md:m-0">
+    <div className="campaign-outer-box rounded-bene-c-1 snap-center shadow-c-1 max-w-xs m-auto md:m-0">
       <div className="campaign-img">
         <img src={campimg1} alt={title} className=" rounded-t-bene-c-1" />
       </div>

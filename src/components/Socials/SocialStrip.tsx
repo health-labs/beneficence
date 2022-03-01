@@ -1,8 +1,8 @@
 import React from 'react';
-import beneDiscord from '../assets/bene-discord.svg';
-import beneGithub from '../assets/bene-github.svg';
-import beneMedium from '../assets/bene-medium.svg';
-import beneExtLogo from '../assets/bene-ext-logo.svg';
+import beneDiscord from '../../assets/bene-discord.svg';
+import beneGithub from '../../assets/bene-github.svg';
+import beneMedium from '../../assets/bene-medium.svg';
+import beneExtLogo from '../../assets/bene-ext-logo.svg';
 
 function SocialStrip() {
   return (
