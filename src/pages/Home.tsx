@@ -74,10 +74,10 @@ function Home() {
         <div className="get-help-heading-with-beat relative overflow-hidden bg-bene-beat-bg bg-repeat-x bg-center">
           <div className="main-inner-body row px-per-7 text-left md:px-per-15 lg:px-per-20 relative py-12">
             <div className="main-inner-heading row-2 max-w-em-10 font-bold bg-white text-7xl">
-              <div className="main-inner-heading-text text-bene-dark-blue">
+              <div className="main-inner-heading-text text-bene-dark-blue w-full sm:w-fit">
                 {mpVariables.mpSec1Heading}
               </div>
-              <div className="main-inner-heading-text text-bene-light-blue">
+              <div className="main-inner-heading-text text-bene-light-blue w-full sm:w-fit">
                 {mpVariables.mpSec1Heading2}
               </div>
             </div>
@@ -85,7 +85,7 @@ function Home() {
         </div>
         <div>
           <div className="main-inner-body-set row-2 px-per-7 text-left md:px-per-15 lg:px-per-20 md:flex justify-between">
-            <div className="main-inner-body-text row-2 text-bxl font-semibold w-per-75">
+            <div className="main-inner-body-text row-2 text-bxl font-semibold sm:w-per-75">
               <span>{mpVariables.mpSec1Body[0]}</span>{' '}
               <span className="text-bene-nav-blue">
                 {mpVariables.mpSec1Body[1]}

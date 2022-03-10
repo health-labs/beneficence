@@ -5,6 +5,7 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   content: ['./src/*.tsx'],
   darkMode: false, // or 'media' or 'class'
+  important: true,
   theme: {
     fontFamily: {
       sans: ['Inter var', 'Raleway', ...defaultTheme.fontFamily.sans],
@@ -78,7 +79,12 @@ module.exports = {
       },
       margin: {
         'cust-32': '32px',
+
         'e-1': '1em',
+
+        'ne-2': '-2em',
+
+        auto0: 'auto 0',
       },
       padding: {
         'cust-btn': '10px',
@@ -93,6 +99,8 @@ module.exports = {
       minWidth: {
         whole: '100vw !important',
         'per-55': '40%',
+
+        'em-20': '20em',
       },
       maxWidth: {
         'em-16': '16em',
@@ -110,6 +118,7 @@ module.exports = {
       },
       maxHeight: {
         'px-425': '425px',
+        '15vw': '15vw',
       },
       borderRadius: {
         'bene-1': '22px',
@@ -125,6 +134,22 @@ module.exports = {
         'c-1': '0px 6px 33px rgba(0, 0, 0, 0.16)',
       },
       rotate: { 360: '360deg' },
+      animation: {
+        'load-component-logo':
+          'load-component-logo 1.2s cubic-bezier(0.445, 0.050, 0.550, 0.950)  infinite alternate',
+      },
+      keyframes: {
+        'load-component-logo': {
+          '0%': {
+            transform: 'scale(0)',
+            opacity: '1',
+          },
+          to: {
+            transform: 'scale(1)',
+            opacity: '1',
+          },
+        },
+      },
     },
   },
   variants: {
