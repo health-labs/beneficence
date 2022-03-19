@@ -25,7 +25,7 @@ function MpCampaignCard(props: CampaignCardProps) {
           <div className="dashed-separator">
             <img src={dashedsep} alt="separator" className="w-half mt-2" />
           </div>
-          <div className="campaign-description my-2 text-cmpdesc-shrt">
+          <div className="campaign-description my-2 text-cmpdesc-shrt max-h-em-3-1/4 min-h-em-3-1/4">
             {description}
           </div>
           <div className="campaign-progress">

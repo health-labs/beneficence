@@ -8,7 +8,7 @@ interface DonateBtnProps {
 function DonateButtonSmall(props: DonateBtnProps) {
   const { campaignid } = props;
   const onDonateBtnClick = () => {
-    const goCampaignUrl = `/campaign/$(campaignid)/donate/`;
+    const goCampaignUrl = `/campaign/${campaignid}`;
     window.location.href = goCampaignUrl;
   };
   return (

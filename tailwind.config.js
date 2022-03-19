@@ -30,6 +30,18 @@ module.exports = {
         'bene-cmp-grey': 'rgba(148, 163, 184, 0.2)',
         'bene-cmp-violet-lt': 'rgba(232, 121, 249, 0.2)',
 
+        'bene-f-sky-blue': 'rgba(22, 138, 244)',
+        'bene-f-violet': 'rgba(93, 22, 244)',
+        'bene-f-green': 'rgba(74, 222, 128)',
+        'bene-f-rosy-red': 'rgba(251, 113, 133)',
+        'bene-f-emerald': 'rgba(52, 211, 153)',
+        'bene-f-blue': 'rgba(96, 165, 250)',
+        'bene-f-purple': 'rgba(192, 132, 252)',
+        'bene-f-pink': 'rgba(244, 114, 182)',
+        'bene-f-cyan': 'rgba(34, 211, 238)',
+        'bene-f-grey': 'rgba(148, 163, 184)',
+        'bene-f-violet-lt': 'rgba(232, 121, 249)',
+
         'bene-nav-opt': 'rgba(255, 255, 255, 0.55)',
         'bene-nav-hopt': 'rgba(255, 255, 255, 0.75)',
       },
@@ -74,6 +86,7 @@ module.exports = {
         'cust-45': '45px',
 
         'beat-1': '-4.5vw',
+        'beat-2': '60vw',
 
         'vw-80': '80vw',
       },
@@ -95,9 +108,13 @@ module.exports = {
         'cust-r-4': '4em',
         'cust-r-5': '5em',
         'cust-r-6': '6em',
+
+        'per-5': '5%',
       },
       minWidth: {
+        quarter: '25vw',
         whole: '100vw !important',
+        'per-30': '30%',
         'per-55': '40%',
 
         'em-20': '20em',
@@ -115,10 +132,18 @@ module.exports = {
 
         'px-30': '30px',
         'px-l': '1024px',
+
+        'per-30': '30%',
+      },
+      minHeight: {
+        'em-3-1/4': '3.25rem',
       },
       maxHeight: {
         'px-425': '425px',
+
         '15vw': '15vw',
+
+        'em-3-1/4': '3.25rem',
       },
       borderRadius: {
         'bene-1': '22px',

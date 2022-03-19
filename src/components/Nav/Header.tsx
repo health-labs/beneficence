@@ -34,7 +34,9 @@ const navOptions = [
 
 function Header() {
   return (
-    <Disclosure as="nav">
+    <Disclosure
+      as="nav"
+      className="bg-white sticky top-0 left-0 w-full h-auto z-50">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">

@@ -1,10 +1,11 @@
 export type Campaign = {
   id: string;
-  name: string;
+  image: string;
+  title: string;
   description: string;
-  startDate: Date;
-  endDate: Date;
-  createdBy: string;
+  startDate: string;
+  endDate: string;
+  createdBy: { pubKey: string; name: string };
   isApproved: boolean;
   fundToCollect: number;
   fundCollected: number;
@@ -13,6 +14,15 @@ export type Campaign = {
 
 export type CampaignCardProps = {
   imgSrc: string;
+  title: string;
+  description: string;
+  link: string;
+  angelsCount: number;
+  campaignId: string;
+};
+
+export type CampaignCardProp = {
+  image: string;
   title: string;
   description: string;
   link: string;

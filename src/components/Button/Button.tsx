@@ -13,10 +13,9 @@ export default function Button(props: ButtonProps) {
   };
 
   return (
-    <div
-      className={`btn-outer tracking-wider transform hover:-translate-y-0.5 transition duration-200 ease-in-out ${className}`}>
+    <div className="btn-outer tracking-wider transform hover:-translate-y-0.5 transition duration-200 ease-in-out">
       <button
-        className="btn p-cust-btn px-cust-xx hover:translate-y-1 bg-bene-dark-blue text-white font-semibold rounded-bene-1 animation-pulse"
+        className={`btn p-cust-btn px-cust-xx hover:translate-y-1 bg-bene-dark-blue text-white font-semibold rounded-bene-1 animation-pulse ${className}`}
         type="button"
         onClick={() => onBtnClick()}>
         {text}

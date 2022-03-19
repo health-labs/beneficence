@@ -74,10 +74,10 @@ function Home() {
         <div className="get-help-heading-with-beat relative overflow-hidden bg-bene-beat-bg bg-repeat-x bg-center">
           <div className="main-inner-body row px-per-7 text-left md:px-per-15 lg:px-per-20 relative py-12">
             <div className="main-inner-heading row-2 max-w-em-10 font-bold bg-white text-7xl">
-              <div className="main-inner-heading-text text-bene-dark-blue w-full sm:w-fit">
+              <div className="main-inner-heading-text text-bene-dark-blue">
                 {mpVariables.mpSec1Heading}
               </div>
-              <div className="main-inner-heading-text text-bene-light-blue w-full sm:w-fit">
+              <div className="main-inner-heading-text text-bene-light-blue">
                 {mpVariables.mpSec1Heading2}
               </div>
             </div>
@@ -101,13 +101,13 @@ function Home() {
                   <Button
                     linkto="/start-a-fund"
                     text={mpVariables.mpSec1Btn1}
-                    className="w-vw-08"
+                    className="w-vw-08 w-full sm:w-fit"
                   />
                   <div className="mt-6 md:invisible" />
                   <Button
                     linkto="/explore"
                     text={mpVariables.mpSec1Btn2}
-                    className="w-vw-08"
+                    className="w-vw-08 w-full sm:w-fit"
                   />
                 </span>
               </div>
