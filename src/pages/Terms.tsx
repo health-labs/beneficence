@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function Terms() {
+  useEffect(() => {
+    document.title = 'Terms | Beneficence';
+  }, []);
   return (
     <div className="p-12">
       <div className="text-lg font-bold py-5">Terms</div>

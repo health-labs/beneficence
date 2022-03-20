@@ -26,10 +26,6 @@ function CustomAmount({ active, color, setActiveVal }: AmtProps) {
     } else {
       setCustAmt(5000000);
     }
-    // if (Number(custAmount) < 1) {
-    //   alert('Err: Minimum donation amount is $1');
-    //   setCustAmt(0);
-    // }
   };
 
   return (

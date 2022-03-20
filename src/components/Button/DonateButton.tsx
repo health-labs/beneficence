@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import donate from '../../assets/donate.svg';
 import { amountWithCommas } from '../../utils/util';
 
@@ -18,7 +19,7 @@ function DonateButton(props: DonateBtnProps) {
     campaignid,
     className,
     amount,
-    onClick = onDonateBtnClick(campaignid),
+    onClick = () => onDonateBtnClick(campaignid),
   } = props;
   const [custAmt, setCustAmt] = useState<string>('');
 

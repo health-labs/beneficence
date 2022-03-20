@@ -44,7 +44,7 @@ function DonateBox({ data, ctheme }: any) {
       value: 1000,
     },
   ];
-  const [selectedAmt, setselectedAmt] = useState(0);
+  const [selectedAmt, setselectedAmt] = useState(25);
 
   const chkActive = (val: number) => {
     return selectedAmt === val;
@@ -61,7 +61,10 @@ function DonateBox({ data, ctheme }: any) {
 
   const onClickDonate = (e: React.MouseEvent) => {
     e.preventDefault();
-    console.log('clicked');
+    if (Number(selectedAmt) < 1) {
+      alert('Err: Minimum donation amount is $1');
+      setselectedAmt(0);
+    }
   };
 
   return (

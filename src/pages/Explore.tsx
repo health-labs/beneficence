@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DonationCard from '../components/Cards/DonationCard';
-import ExploreCard from '../components/Cards/ExploreCard';
 import joinhand from '../assets/join-hand.svg';
 import StartCampBox from '../components/StartCampBox';
 import { mpCampaigns } from '../test/data';
 
 function Explore() {
+  useEffect(() => {
+    document.title = 'Explore fundraisers | Beneficence';
+  }, []);
   return (
     <div>
       <div>
@@ -26,7 +28,7 @@ function Explore() {
         </div>
       </div>
 
-      <div className="p-8 grid gap-8 grid grid-cols-1 gap-y-8 sm:grid-cols-2 gap-x-5 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 text-left">
+      <div className="p-8 grid gap-8 grid grid-cols-1 gap-y-8 sm:grid-cols-2 gap-x-5 lg:grid-cols-3 text-left">
         {mpCampaigns.map((campaign) => {
           return (
             <DonationCard

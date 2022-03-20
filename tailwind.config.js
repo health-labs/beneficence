@@ -18,6 +18,8 @@ module.exports = {
         'bene-very-light-blue': '#AEE1F7',
         'bene-nav-blue': '#015EA1',
 
+        'bene-dark-blue-75': '#003D84BF',
+
         'bene-cmp-sky-blue': 'rgba(22, 138, 244, 0.2)',
         'bene-cmp-violet': 'rgba(93, 22, 244, 0.2)',
         'bene-cmp-green': 'rgba(74, 222, 128, 0.2)',
@@ -88,6 +90,7 @@ module.exports = {
         'beat-1': '-4.5vw',
         'beat-2': '60vw',
 
+        'vw-33': '33vw',
         'vw-80': '80vw',
       },
       margin: {
@@ -96,6 +99,7 @@ module.exports = {
         'e-1': '1em',
 
         'ne-2': '-2em',
+        n100: '-100%',
 
         auto0: 'auto 0',
       },
@@ -118,6 +122,8 @@ module.exports = {
         'per-55': '40%',
 
         'em-20': '20em',
+
+        '30px': '30px',
       },
       maxWidth: {
         'em-16': '16em',
@@ -134,14 +140,20 @@ module.exports = {
         'px-l': '1024px',
 
         'per-30': '30%',
+
+        'per-33': '33%',
       },
       minHeight: {
         'em-3-1/4': '3.25rem',
+
+        '48px': '48px',
       },
       maxHeight: {
         'px-425': '425px',
+        '48px': '48px',
 
         '15vw': '15vw',
+        'vw-33': '33vw',
 
         'em-3-1/4': '3.25rem',
       },
@@ -154,6 +166,8 @@ module.exports = {
         'bene-wavy-bg': 'url(./assets/wavy-bg-big.svg)',
         'bene-beat-bg': 'url(./assets/bene-beat.svg)',
         'bene-quote': 'url(./assets/mp-quote-bg.png)',
+        'bene-angels-lg': 'url(./assets/angels-lg.svg)',
+        'bene-dollar-lg': 'url(./assets/dollar-lg.svg)',
       },
       boxShadow: {
         'c-1': '0px 6px 33px rgba(0, 0, 0, 0.16)',

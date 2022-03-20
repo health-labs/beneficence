@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function Privacy() {
+  useEffect(() => {
+    document.title = 'Privacy | Beneficence';
+  }, []);
   return (
     <div className="p-122 flex-grow">
       <div>

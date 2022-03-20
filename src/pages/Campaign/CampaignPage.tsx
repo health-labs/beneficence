@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Title from '../../components/Campaign/Title';
 import { Campaign } from '../../types/Campaign';
 import childImg from '../../assets/campimg-1.png';
@@ -11,7 +11,7 @@ import DonateBox from '../../components/Campaign/DonateBox';
 const campData: Campaign = {
   id: '1',
   image: childImg,
-  title: 'Campaign title',
+  title: `Help my son's cancer`,
   description: 'Campaign description',
   startDate: '2020-01-01',
   endDate: '2020-01-01',
@@ -38,10 +38,13 @@ function CampaignPage() {
   } = campData;
   const campThemeName = generateRandomCardBg();
   const campThemeColor = rgbaToHex(campColorRgb[campThemeName]);
+  useEffect(() => {
+    document.title = `${title} | Beneficence`;
+  }, []);
   return (
     <div className="flex p-8 pl-per-5 flex-wrap flex-row justify-between">
       <div className="basis-3/5">
-        <Title title="Help my son's cancer" />
+        <Title title={title} />
         <div className="py-3">
           <img
             src={image}
