@@ -38,7 +38,7 @@ export const amtToStr = (amount: number) => {
   if (amtInMil > 1) {
     amtStr = `${amtInMil.toFixed(2)}M`;
   } else if (amtInThousand > 1) {
-    amtStr = `${amtInThousand.toFixed(2)}k`;
+    amtStr = `${amtInThousand.toFixed(1)}k`;
   } else {
     amtStr = `${amount}`;
   }
@@ -47,4 +47,12 @@ export const amtToStr = (amount: number) => {
 
 export const amountWithCommas = (amount: number) => {
   return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
+export const amtAsM = (amount: number) => {
+  const amtInMil = amount / 1000000;
+  if (amtInMil > 1) {
+    return `${amtInMil.toFixed(2)} M`;
+  }
+  return amountWithCommas(amount);
 };

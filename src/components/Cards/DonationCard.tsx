@@ -7,6 +7,7 @@ import dashedsep from '../../assets/dashedsep.svg';
 import { campColors } from '../../const/campColors';
 import {
   amountWithCommas,
+  amtAsM,
   amtToStr,
   calcDaysFromToday,
   formatTitle,
@@ -42,7 +43,7 @@ function DonationCard(props: CampaignCardProps) {
               />
               <PercentCircle />
               <StatsDiv
-                value={`$${amountWithCommas(30000)}`}
+                value={`$${amtAsM(30000)}`}
                 bgtype="bg-bene-dollar-lg max-w-per-33"
                 text="raised"
               />

@@ -4,35 +4,29 @@ import { calcProgressPercent } from '../../../utils/campaign';
 function PercentCircle() {
   const raised = 30000;
   const goal = 50000;
+  const cf = 2 * Math.PI * 30;
+  const per = calcProgressPercent(raised, goal);
   return (
     <div className="self-center">
       <div className="flex justify-center">
         <div className="w-full h-full flex justify-center items-center">
-          <svg className="w-20 h-20">
+          <svg viewBox="-1 -1 34 34" className="h-16 w-16 tranform -rotate-90">
+            <circle cx="16" cy="16" r="15.3155" fill="none" />
             <circle
-              className="text-gray-300"
-              strokeWidth="5"
-              stroke="currentColor"
-              fill="transparent"
-              r="30"
-              cx="40"
-              cy="40"
-            />
-            <circle
-              className="text-blue-600"
-              strokeWidth="5"
-              strokeDasharray="circumference"
-              strokeDashoffset="circumference - percent / 100 * circumference"
-              strokeLinecap="round"
+              cx="16"
+              cy="16"
+              r="15.3155"
+              strokeDasharray="100 100"
+              strokeDashoffset={`${100 - per}`}
               stroke="#003D84"
-              fill="#003D84"
-              r="30"
-              cx="40"
-              cy="40"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+              className="transition-stroke-dashoffset"
             />
           </svg>
           <span className="absolute text-xl text-bene-dark-blue font-semibold">
-            {calcProgressPercent(raised, goal)}%
+            {per}%
           </span>
         </div>
       </div>

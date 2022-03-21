@@ -1,4 +1,7 @@
-import React, { useEffect } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { useEffect, useState } from 'react';
+import ReactTooltip from 'react-tooltip';
+import { Tab } from '@headlessui/react';
 import Title from '../../components/Campaign/Title';
 import { Campaign } from '../../types/Campaign';
 import childImg from '../../assets/campimg-1.png';
@@ -22,6 +25,32 @@ const campData: Campaign = {
   angelsCount: 8,
 };
 
+const classNames = (...classes: any) => {
+  return classes.filter(Boolean).join(' ');
+};
+
+type DonorTypes = {
+  name: string;
+  amount: number;
+  pubKey: string;
+  imgSrc?: string;
+};
+
+type TabContentType = {
+  Story: string;
+  PoN: {
+    text: string;
+    imgSrc: string[];
+  };
+  PoU: {
+    hasContent: boolean;
+    text: string;
+    imgSrc: string[];
+  };
+  whyDonate: { hasContent: boolean; text: string };
+  donors: DonorTypes[];
+};
+
 function CampaignPage() {
   const {
     id,
@@ -41,6 +70,91 @@ function CampaignPage() {
   useEffect(() => {
     document.title = `${title} | Beneficence`;
   }, []);
+  const tabTitles = [
+    'Story',
+    'Proof of need',
+    'Proof of use',
+    'Why Donate?',
+    'Donors',
+  ];
+  const [tabContent, setTabContent] = useState<TabContentType>({
+    Story: '',
+    PoN: {
+      text: '',
+      imgSrc: [],
+    },
+    PoU: {
+      hasContent: false,
+      text: '',
+      imgSrc: [],
+    },
+    whyDonate: { hasContent: false, text: '' },
+    donors: [],
+  });
+  const [pouEnabled, setPouEnabled] = useState(false);
+  useEffect(() => {
+    setTabContent({
+      Story:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+
+      PoN: {
+        text: 'The documents in the images below are proof of need',
+        imgSrc: [
+          'https://freesvg.org/img/abstract-user-flat-4.png',
+          'https://img.bb/9asd88',
+        ],
+      },
+      PoU: { hasContent: false, text: '', imgSrc: [] },
+      whyDonate: {
+        hasContent: false,
+        text: 'Lorem ipsum todo donate to help succeed his treatment',
+      },
+
+      donors: [
+        {
+          name: 'Vink',
+          pubKey: '0x0a9oioj0abdc00nasdj',
+          imgSrc: 'https://freesvg.org/img/abstract-user-flat-4.png',
+          amount: 100,
+        },
+        {
+          name: 'Vink',
+          pubKey: '0x0a9oioj0abdc00nasdj',
+          imgSrc: 'https://freesvg.org/img/abstract-user-flat-4.png',
+          amount: 70,
+        },
+        {
+          name: 'Vink',
+          pubKey: '0x0a9oioj0abdc00nasdj',
+          imgSrc: 'https://freesvg.org/img/abstract-user-flat-4.png',
+          amount: 70,
+        },
+        {
+          name: 'Vink',
+          pubKey: '0x0a9oioj0abdc00nasdj',
+          imgSrc: 'https://freesvg.org/img/abstract-user-flat-4.png',
+          amount: 70,
+        },
+        {
+          name: 'Vink',
+          pubKey: '0x0a9oioj0abdc00nasdj',
+          imgSrc: 'https://freesvg.org/img/abstract-user-flat-4.png',
+          amount: 70,
+        },
+        {
+          name: 'Vink',
+          pubKey: '0x0a9oioj0abdc00nasdj',
+          imgSrc: 'https://freesvg.org/img/abstract-user-flat-4.png',
+          amount: 70,
+        },
+      ],
+    });
+    const pouEnableStatus = tabContent?.PoU?.hasContent;
+    if (typeof pouEnableStatus === 'boolean') {
+      setPouEnabled(pouEnableStatus);
+    }
+  }, []);
+
   return (
     <div className="flex p-8 pl-per-5 flex-wrap flex-row justify-between">
       <div className="basis-3/5">
@@ -51,6 +165,133 @@ function CampaignPage() {
             alt={`${title} cover`}
             className="w-beat-2 rounded-bene-c-2"
           />
+        </div>
+        <div className="py-3 w-full sm:max-w-60vw py-auto px-0">
+          <Tab.Group defaultIndex={0}>
+            <Tab.List
+              className={`tab-list flex p-2 min-w-min space-x-1 bg-bene-cmp-${campThemeName} rounded-xl`}>
+              {tabTitles.map((tabt, index) => (
+                <Tab
+                  disabled={!pouEnabled && index === 2}
+                  className={({ selected }) =>
+                    classNames(
+                      `w-full p-2 px-4 font-semibold text-lg text-bene-f-${campThemeName} whitespace-nowrap rounded-lg focus:outline-none`,
+                      selected
+                        ? `bg-white shadow-bene-f-${campThemeName}`
+                        : `text-bene-cmp-${campThemeName} hover:bg-white/[0.12] hover:text-white`,
+                      tabt === 'Proof of use' &&
+                        !pouEnabled &&
+                        `cursor-not-allowed disabled opacity-50 hover:text-bene-f-${campThemeName}`
+                    )
+                  }
+                  data-tip
+                  data-for={!pouEnabled && index === 2 && 'noPou'}
+                  key={tabt}>
+                  {tabt}
+                  <ReactTooltip id="noPou" place="top" effect="solid">
+                    No proof of use given yet
+                  </ReactTooltip>
+                </Tab>
+              ))}
+            </Tab.List>
+            {tabContent !== undefined && tabContent?.Story && (
+              <Tab.Panels className="tab-panels">
+                {/* Story */}
+                <Tab.Panel className="tab-panel">
+                  <div className="text-left mt-2">
+                    <div className="text-lg font-semibold py-2">
+                      Campaign Story
+                    </div>
+                    <p>{tabContent?.Story}</p>
+                  </div>
+                </Tab.Panel>
+                {/* Proof of need */}
+                <Tab.Panel className="tab-panel">
+                  <div className="py-3 text-left mt-2">
+                    <div className="text-lg font-semibold py-2">
+                      Proof of need
+                    </div>
+                    <p>{tabContent?.PoN.text}</p>
+                    {tabContent?.PoN.imgSrc.map((imgSrc, index) => (
+                      <img
+                        src={imgSrc}
+                        alt={`${title} PoN ${index}`}
+                        className="w-beat-2 rounded-bene-c-2"
+                      />
+                    ))}
+                  </div>
+                </Tab.Panel>
+                {/* Proof of use */}
+                <Tab.Panel className="tab-panel">
+                  <div className="py-3 text-left mt-2">
+                    <div className="text-lg font-semibold py-2">
+                      Proof of use
+                    </div>
+                    <p>
+                      {tabContent?.PoU?.hasContent
+                        ? tabContent?.PoU?.text
+                        : 'No proof of use yet'}
+                    </p>
+                    {tabContent?.PoU?.imgSrc.map((imgSrc, index) => (
+                      <img
+                        src={imgSrc}
+                        alt={`${title} PoU ${index}`}
+                        className="w-beat-2 rounded-bene-c-2"
+                      />
+                    ))}
+                  </div>
+                </Tab.Panel>
+
+                {/* Why donate */}
+                <Tab.Panel className="tab-panel">
+                  <div className="py-3 text-left mt-2">
+                    <div className="text-lg font-semibold py-2">
+                      Why Donate?
+                    </div>
+                    <p>{tabContent?.whyDonate?.text}</p>
+                  </div>
+                </Tab.Panel>
+                <Tab.Panel className="tab-panel">
+                  <div className="py-3 text-left mt-2">
+                    <div className="text-lg font-semibold py-2 text-center">
+                      Donors
+                    </div>
+                    <div className="flex flex-wrap flex-row justify-between">
+                      {tabContent?.donors.map((donor, index) => (
+                        <div className="w-1/2 py-2 flex justify-center">
+                          <div
+                            className={`flex max-w-per-65 items-center p-4 justify-center border-2 border-bg-bene-cmp-${campThemeName} border-dashed rounded-lg`}>
+                            <img
+                              src={donor.imgSrc}
+                              alt={`${title} donor ${index}`}
+                              className="w-beat-2 rounded-bene-c-2 max-w-px-40"
+                            />
+                            <div className="text-lg font-semibold p-2">
+                              {donor.name}
+                            </div>
+                            contributed
+                            <div className="text-lg font-semibold p-2">
+                              ${donor.amount}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                      {tabContent?.donors.length === 0 && (
+                        <div className="w-full py-2 flex justify-center">
+                          <div
+                            className={`flex w-full items-center justify-center border-2 border-bg-bene-cmp-${campThemeName} border-dashed rounded-lg`}>
+                            <div className="text-lg font-semibold p-2">
+                              No donors yet
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </Tab.Panel>
+              </Tab.Panels>
+            )}
+          </Tab.Group>
         </div>
       </div>
       <div className="basis-2/5 flex flex-col md:max-w-per-30">

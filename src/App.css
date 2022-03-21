@@ -33,6 +33,14 @@
   padding-bottom: 35vh;
 }
 
+.transition-stroke-dashoffset {
+  animation: showper 1.8s ease-in-out;
+}
+@keyframes showper {
+  from {
+    stroke-dashoffset: 100;
+  }
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

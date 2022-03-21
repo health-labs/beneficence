@@ -1,14 +1,12 @@
 import React from 'react';
-// import mainImg from '../assets/main-img.svg';
 import { mpVariables } from '../const/variables';
-import beneBeat from '../assets/bene-beat.svg';
 import Button from '../components/Button/Button';
 import childImg from '../assets/mp-cancer-child.svg';
 import wavySmall from '../assets/wavy-small.svg';
 import MpCampaignCard from '../components/Cards/MpCampaignCard';
 import SocialStrip from '../components/Socials/SocialStrip';
 import { CampaignCardProps } from '../types/Campaign';
-import Footer from '../components/Nav/Footer';
+import quote from '../assets/quote.svg';
 
 function Home() {
   const mpCampaigns: CampaignCardProps[] = [
@@ -155,8 +153,14 @@ function Home() {
         </div>
 
         <div className="mp-quote-box-outer row text-center">
-          <div className="mp-quote-inner p-per-15 bg-no-repeat bg-bene-quote w-full h-full font-bold text-bxl text-bene-dark-blue max-h-px-425">
+          <div className="flex flex-col justify-center mp-quote-inner p-per-15 bg-no-repeat bg-bene-quote w-full h-full font-bold text-bxl text-bene-dark-blue max-h-px-425">
+            <div className="flex justify-center mb-2">
+              <img src={quote} alt="quote" />
+            </div>
             <div className="mp-quote-text">{mpVariables.mpQuote}</div>
+            <div className="flex justify-center mt-4 font-semibold">
+              {mpVariables.mpQuoteBy}
+            </div>
           </div>
         </div>
         <div className="mp-btm-strip-outer">

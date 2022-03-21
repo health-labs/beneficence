@@ -11,21 +11,21 @@ function SocialStrip() {
         <div className="bene-discord mx-2">
           <button
             type="button"
-            className="transition ease-in-out delay-150 hover:-translate-1 hover:scale-125 hover:text-indigo-500 duration-200">
+            className="transition ease-in-out delay-150 hover:-translate-1 hover:scale-105 hover:text-indigo-500 duration-200">
             <img src={beneDiscord} alt="discord" />
           </button>
         </div>
         <div className="bene-github mx-2">
           <button
             type="button"
-            className="transition ease-in-out delay-150 hover:-translate-1 hover:scale-125 hover:text-indigo-500 duration-200">
+            className="transition ease-in-out delay-150 hover:-translate-1 hover:scale-105 hover:text-indigo-500 duration-200">
             <img src={beneGithub} alt="github" />
           </button>
         </div>
         <div className="bene-medium mx-2">
           <button
             type="button"
-            className="transition ease-in-out delay-150 hover:-translate-1 hover:scale-125 hover:text-indigo-500 duration-200">
+            className="transition ease-in-out delay-150 hover:-translate-1 hover:scale-105 hover:text-indigo-500 duration-200">
             <img src={beneMedium} alt="medium" />
           </button>
         </div>
