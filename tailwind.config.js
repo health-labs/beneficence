@@ -92,6 +92,8 @@ module.exports = {
 
         'vw-33': '33vw',
         'vw-80': '80vw',
+
+        em27: '27em',
       },
       margin: {
         'cust-32': '32px',
@@ -133,6 +135,7 @@ module.exports = {
         'em-7': '7em',
         'em-3': '3em',
         'em-1-hf': '1.5em',
+        'em-24': '24em',
 
         content: 'max-content',
 
@@ -172,6 +175,10 @@ module.exports = {
         'bene-quote': 'url(./assets/mp-quote-bg.png)',
         'bene-angels-lg': 'url(./assets/angels-lg.svg)',
         'bene-dollar-lg': 'url(./assets/dollar-lg.svg)',
+      },
+      dropShadow: {
+        'bene-1': '0px 0px 10px rgba(0, 0, 0, 0.1)',
+        'bene-2': '0 4px 16px rgba(6, 26, 56, 0.1)',
       },
       boxShadow: {
         'c-1': '0px 6px 33px rgba(0, 0, 0, 0.16)',

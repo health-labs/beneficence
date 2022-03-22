@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface AmtProps {
   amount: { label: string; value: number };
@@ -13,6 +13,7 @@ function DonationAmount({ amount, active, color, setActiveVal }: AmtProps) {
   const setActive = (val: number) => {
     setActiveVal(val);
   };
+
   return (
     <button
       className={`rounded-bene-c-2 p-4 font-semibold text-2xl hover:text-3xl hover:text-white hover:${color} transform group ${ifActive}`}

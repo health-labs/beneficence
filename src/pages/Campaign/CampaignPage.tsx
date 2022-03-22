@@ -188,7 +188,11 @@ function CampaignPage() {
                   data-for={!pouEnabled && index === 2 && 'noPou'}
                   key={tabt}>
                   {tabt}
-                  <ReactTooltip id="noPou" place="top" effect="solid">
+                  <ReactTooltip
+                    id="noPou"
+                    place="bottom"
+                    effect="solid"
+                    className="rounded-md">
                     No proof of use given yet
                   </ReactTooltip>
                 </Tab>

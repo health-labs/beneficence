@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { campColorRgb } from '../../const/campColors';
 import { rgbaToHex } from '../../utils/campaign';
 import DonateButton from '../Button/DonateButton';
@@ -66,6 +66,10 @@ function DonateBox({ data, ctheme }: any) {
       setselectedAmt(0);
     }
   };
+
+  useEffect(() => {
+    setselectedAmt(25);
+  }, []);
 
   return (
     <div
