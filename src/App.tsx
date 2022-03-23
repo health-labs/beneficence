@@ -9,6 +9,7 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Explore from './pages/Explore';
 import CampaignPage from './pages/Campaign/CampaignPage';
+import { LoadingAppProvider } from './context/LoadingApp';
 
 function App() {
   return (
@@ -17,24 +18,26 @@ function App() {
         <Header />
       </WalletConnectContextProvider>
       <BrowserRouter>
-        <div className="h-auto w-full max-w-90rem mx-auto">
-          <Routes>
-            <Route path="/" element={<Home />} />
+        <div className="h-auto w-full max-w-90rem mx-auto min-h-fit">
+          <LoadingAppProvider>
+            <Routes>
+              <Route path="/" element={<Home />} />
 
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
 
-            <Route path="/explore" element={<Explore />} />
-            <Route path="/campaign/:id" element={<CampaignPage />} />
-            <Route
-              path="*"
-              element={
-                <div className="error-empty font-bold text-xl">
-                  Oops looks like you have hit an empty space.
-                </div>
-              }
-            />
-          </Routes>{' '}
+              <Route path="/explore" element={<Explore />} />
+              <Route path="/campaign/:id" element={<CampaignPage />} />
+              <Route
+                path="*"
+                element={
+                  <div className="error-empty font-bold text-xl">
+                    Oops looks like you have hit an empty space.
+                  </div>
+                }
+              />
+            </Routes>
+          </LoadingAppProvider>
         </div>
       </BrowserRouter>
       <div className="bg-bene-dark-blue">

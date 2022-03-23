@@ -45,7 +45,14 @@
 .filter-bene-2 {
   filter: drop-shadow(0 4px 16px rgba(6, 26, 56, 0.1)) !important;
 }
-
+.share-hover:hover {
+  filter: drop-shadow(1px 1px 1px rgba(6, 26, 56, 0.1)) !important;
+  transform: translateY(-0.5em);
+  padding-bottom: 0.5em;
+}
+.share-hover {
+  transition: transform 0.3s ease 0s;
+}
 @keyframes showper {
   from {
     stroke-dashoffset: 100;

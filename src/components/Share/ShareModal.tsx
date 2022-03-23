@@ -11,7 +11,7 @@ import useCopyText from '../../hooks/useCopyText';
 import successCamp from '../../assets/success-camp.svg';
 import failedCamp from '../../assets/failed-camp.svg';
 
-function ShareAction({
+function ShareModal({
   id,
   organiser,
   title,
@@ -29,42 +29,50 @@ function ShareAction({
       img: twitterCamp,
       alt: 'Share on Twitter',
       icoName: 'twitter',
+      category: 'social',
       url: `https://twitter.com/intent/tweet?text=Check out this campaign on Beneficence. Donate to ${organiser}'s campaign to help their medical needs. Every donation counts. Find it here: https://${url}/campaign/${id}`,
     },
     {
       img: facebookCamp,
       alt: 'Share on Facebook',
       icoName: 'facebook',
+      category: 'social',
       url: `https://www.facebook.com/sharer/sharer.php?u=https://${url}/campaign/${id}`,
     },
     {
       img: whatsappCamp,
       alt: 'Share on Whatsapp',
       icoName: 'whatsapp',
+      category: 'personal',
       url: `https://api.whatsapp.com/send?text=Hey there, Check out this campaign on Beneficence. Donate to ${organiser}'s campaign to help their medical needs. Every donation counts. &url=https://${url}/campaign/${id}`,
     },
     {
       img: mailCamp,
       alt: 'Share on Mail',
       icoName: 'mail',
+      category: 'personal',
       url: `mailto:?subject=${title} &body=Hey there,%0D%0ACheck out this campaign on Beneficence. Donate to ${organiser}'s campaign to help their medical needs. Every donation counts. %0D%0ADonate here: https://${url}/campaign/${id}`,
     },
     {
       img: redditCamp,
       alt: 'Share on Reddit',
       icoName: 'reddit',
+      category: 'social',
+
       url: `https://www.reddit.com/submit?url=https://${url}/campaign/${id}&title=Check out this campaign on Beneficence. Donate to ${organiser}'s campaign to help their medical needs. Every donation counts. &resubmit=true&selftext=true`,
     },
     {
       img: instagramCamp,
       alt: 'Share on Instagram',
       icoName: 'instagram',
+      category: 'social',
       url: 'https://www.instagram.com/',
     },
     {
       img: linkedinCamp,
       alt: 'Share on Linkedin',
       icoName: 'linkedin',
+      category: 'social',
       url: `https://www.linkedin.com/shareArticle?mini=true&url=https://${url}/campaign/${id}&title=Check out this campaign on Beneficence. Donate to ${organiser}'s campaign to help their medical needs. Every donation counts. &summary=&source=`,
     },
   ];
@@ -78,24 +86,66 @@ function ShareAction({
 
   return (
     <div
-      className={`flex flex-col absolute filter-bene-2 bg-white rounded-bene-1 ${className}`}>
+      className={`flex flex-col absolute filter-bene-2 bg-white rounded-bene-c-2 ${className}`}>
+      <div> Help {organiser} </div>
+      Share and spread the word to encourage donations from people in your
+      contacts or socials.
       <div className="flex w-em27">
-        {shareArr.map((share, index) => (
-          <div className={`share-${share.img} p-4 pb-1`}>
-            <a
-              href={share.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transform hover:transform transition-all duration-200 hover:opacity-80 hover:-translate-y-2 hover:pb-2">
-              <img
-                src={share.img}
-                alt={share.alt}
-                className="h-14 w-14 share-hover"
-              />
-            </a>
+        <div className="flex flex-col justify-center items-center w-em27">
+          <div className=" p-4 pb-1">
+            <h3 className="text-center text-xl font-semibold text-gray-900">
+              Social:
+            </h3>
           </div>
-        ))}
+          {shareArr.map((share, index) =>
+            share.category === 'social' ? (
+              <div className={`share-${share.img} p-4 pb-1`}>
+                <a
+                  href={share.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transform hover:transform transition-all duration-200 hover:opacity-80 hover:-translate-y-2 hover:pb-2">
+                  <img
+                    src={share.img}
+                    alt={share.alt}
+                    className="h-14 w-14 share-hover"
+                  />
+                </a>
+              </div>
+            ) : (
+              {}
+            )
+          )}
+        </div>
+        <div className="flex flex-col justify-center items-center w-em27">
+          <div className=" p-4 pb-1">
+            <h3 className="text-center text-xl font-semibold text-gray-900">
+              Personal:
+            </h3>
+          </div>
+
+          {shareArr.map((share, index) =>
+            share.category === 'personal' ? (
+              <div className={`share-${share.img} p-4 pb-1`}>
+                <a
+                  href={share.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transform hover:transform transition-all duration-200 hover:opacity-80 hover:-translate-y-2 hover:pb-2">
+                  <img
+                    src={share.img}
+                    alt={share.alt}
+                    className="h-14 w-14 share-hover"
+                  />
+                </a>
+              </div>
+            ) : (
+              {}
+            )
+          )}
+        </div>
       </div>
+      <div>Get a shareable link to the campaign: </div>
       <div className="copy-link p-4 pt-1 flex flex-row items-center">
         <input
           type="text"
@@ -123,4 +173,4 @@ function ShareAction({
   );
 }
 
-export default ShareAction;
+export default ShareModal;

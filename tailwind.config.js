@@ -153,7 +153,7 @@ module.exports = {
       },
       minHeight: {
         'em-3-1/4': '3.25rem',
-
+        '85vh': '85vh',
         '48px': '48px',
       },
       maxHeight: {
@@ -177,6 +177,13 @@ module.exports = {
         'bene-quote': 'url(./assets/mp-quote-bg.png)',
         'bene-angels-lg': 'url(./assets/angels-lg.svg)',
         'bene-dollar-lg': 'url(./assets/dollar-lg.svg)',
+        'bene-load':
+          'linear-gradient(220deg, rgb(19, 182, 182), rgb(56, 124, 173), rgb(22, 206, 236))',
+        'bene-dim-end':
+          'linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgba(209, 212, 213, 0.44) 20%, rgba(158, 161, 162, 0.03) 80%, rgb(0, 61, 132) 100%)',
+      },
+      backgroundSize: {
+        load: '700% 100%',
       },
       boxShadow: {
         'c-1': '0px 6px 33px rgba(0, 0, 0, 0.16)',
@@ -184,9 +191,14 @@ module.exports = {
       rotate: { 360: '360deg' },
       animation: {
         'load-component-logo':
-          'load-component-logo 1.2s cubic-bezier(0.445, 0.050, 0.550, 0.950)  infinite alternate',
+          '1.2s cubic-bezier(0.445, 0.050, 0.550, 0.950) infinite alternate load-component-logo',
         'open-share-box':
           'open-share-box cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both',
+        'loading-bene': '3s 4s linear infinite both loading-bene',
+        'loading-bene-2':
+          '1.5s ease-in-out infinite alternate-reverse both loading-bene-2',
+        'loading-bg':
+          '10s ease 0s infinite alternate-reverse both running loading-bg',
       },
       keyframes: {
         'load-component-logo': {
@@ -209,6 +221,45 @@ module.exports = {
             transform: 'scaleX(1)',
             'transform-origin': '0% 0%',
             opacity: '1',
+          },
+        },
+        'loading-bene': {
+          '0%': {
+            transform: 'scale(1)',
+            'transform-origin': 'center center',
+            'animation-timing-function': 'ease-out',
+          },
+          '10%': {
+            transform: 'scale(.87)',
+            'animation-timing-function': 'ease-in',
+          },
+          '17%': {
+            transform: 'scale(.98)',
+            'animation-timing-function': 'ease-out',
+          },
+          '33%': {
+            transform: 'scale(.80)',
+            'animation-timing-function': 'ease-in',
+          },
+          '45%': {
+            transform: 'scale(1)',
+            'animation-timing-function': 'ease-out',
+          },
+        },
+        'loading-bene-2': {
+          '0%': {
+            transform: 'scale(1)',
+          },
+          to: {
+            transform: 'scale(.5)',
+          },
+        },
+        'loading-bg': {
+          '0%': {
+            'background-position': '100% 50%',
+          },
+          to: {
+            'background-position': '0% 50%',
           },
         },
       },
