@@ -17,7 +17,7 @@ function App() {
         <Header />
       </WalletConnectContextProvider>
       <BrowserRouter>
-        <div className="h-auto">
+        <div className="h-auto w-full max-w-90rem mx-auto">
           <Routes>
             <Route path="/" element={<Home />} />
 
@@ -37,7 +37,9 @@ function App() {
           </Routes>{' '}
         </div>
       </BrowserRouter>
-      <Footer />
+      <div className="bg-bene-dark-blue">
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -13,18 +13,24 @@ function CustomAmount({ active, color, setActiveVal }: AmtProps) {
 
   useEffect(() => {
     if (typeof custAmt !== 'undefined') {
-      setActiveVal(Number(custAmt));
+      setActiveVal(custAmt);
     } else {
       setActiveVal(0);
     }
   }, [custAmt]);
 
   const onChangeCustom = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const custAmount = e.target.value.replace(/\D/g, '');
-    if (Number(custAmount) < 5000000) {
-      setCustAmt(Number(custAmount));
-    } else {
-      setCustAmt(5000000);
+    const custAmount = e.target.value.match(/^\d*\.?\d*$/)
+      ? parseFloat(e.target.value)
+      : custAmt;
+    if (custAmount !== undefined) {
+      if (custAmount < 5000000) {
+        setCustAmt(custAmount);
+      } else if (custAmount > 5000000) {
+        setCustAmt(5000000);
+      } else {
+        setCustAmt(undefined);
+      }
     }
   };
 

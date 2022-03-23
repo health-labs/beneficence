@@ -42,6 +42,9 @@
 .show {
   display: block !important;
 }
+.filter-bene-2 {
+  filter: drop-shadow(0 4px 16px rgba(6, 26, 56, 0.1)) !important;
+}
 
 @keyframes showper {
   from {

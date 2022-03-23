@@ -10,7 +10,7 @@ function StartCampBox() {
           Start a fundraiser for yourself.
         </div>
         <div>
-          <Link to="/start-a-fund">
+          <Link to="/start-a-fund" className="inline-block">
             <Button
               text="Start fundraising"
               className="w-vw-08 my-4"

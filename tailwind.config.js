@@ -136,7 +136,7 @@ module.exports = {
         'em-3': '3em',
         'em-1-hf': '1.5em',
         'em-24': '24em',
-
+        '90rem': '90rem',
         content: 'max-content',
 
         'px-30': '30px',
@@ -146,6 +146,7 @@ module.exports = {
         'per-30': '30%',
         'per-33': '33%',
         'per-65': '65%',
+        'per-98': '98%',
 
         '60vw': '60vw',
         '80vw': '80vw',
@@ -163,6 +164,7 @@ module.exports = {
         'vw-33': '33vw',
 
         'em-3-1/4': '3.25rem',
+        '12rem': '12rem',
       },
       borderRadius: {
         'bene-1': '22px',
@@ -176,10 +178,6 @@ module.exports = {
         'bene-angels-lg': 'url(./assets/angels-lg.svg)',
         'bene-dollar-lg': 'url(./assets/dollar-lg.svg)',
       },
-      dropShadow: {
-        'bene-1': '0px 0px 10px rgba(0, 0, 0, 0.1)',
-        'bene-2': '0 4px 16px rgba(6, 26, 56, 0.1)',
-      },
       boxShadow: {
         'c-1': '0px 6px 33px rgba(0, 0, 0, 0.16)',
       },
@@ -187,6 +185,8 @@ module.exports = {
       animation: {
         'load-component-logo':
           'load-component-logo 1.2s cubic-bezier(0.445, 0.050, 0.550, 0.950)  infinite alternate',
+        'open-share-box':
+          'open-share-box cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both',
       },
       keyframes: {
         'load-component-logo': {
@@ -199,6 +199,18 @@ module.exports = {
             opacity: '1',
           },
         },
+        'open-share-box': {
+          '0%': {
+            transform: 'scaleX(0.5) scaleY(-0.5)',
+            'transform-origin': '0% 0%',
+            opacity: '1',
+          },
+          to: {
+            transform: 'scaleX(1)',
+            'transform-origin': '0% 0%',
+            opacity: '1',
+          },
+        },
       },
     },
   },
@@ -207,6 +219,9 @@ module.exports = {
       scale: ['group-hover', 'hover'],
       animation: ['hover', 'focus', 'group-hover'],
       margin: ['hover', 'focus', 'group-hover'],
+      visibility: ['hover', 'focus', 'group-hover'],
+      transform: ['hover', 'group-hover'],
+      translate: ['hover', 'group-hover'],
     },
   },
 };

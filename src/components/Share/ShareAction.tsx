@@ -78,7 +78,7 @@ function ShareAction({
 
   return (
     <div
-      className={`flex flex-col absolute drop-shadow-bene-2 bg-white rounded-bene-1 ${className}`}>
+      className={`flex flex-col absolute filter-bene-2 bg-white rounded-bene-1 ${className}`}>
       <div className="flex w-em27">
         {shareArr.map((share, index) => (
           <div className={`share-${share.img} p-4 pb-1`}>
@@ -86,7 +86,7 @@ function ShareAction({
               href={share.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="transform transition-all duration-200 hover:opacity-80">
+              className="transform hover:transform transition-all duration-200 hover:opacity-80 hover:-translate-y-2 hover:pb-2">
               <img src={share.img} alt={share.alt} className="h-14 w-14" />
             </a>
           </div>

@@ -52,8 +52,14 @@ function DonationCard(props: CampaignCardProps) {
               </div>
               <div className="interaction-opt flex justify-between">
                 <div className="interaction-opt-inner-left flex my-auto mx-0">
-                  <div className="campaign-share mr-2  cursor-pointer">
+                  <div className="campaign-share mr-2 group cursor-pointer relative">
                     <img src={share} alt="share" className="hover:opacity-75" />
+                    <ShareAction
+                      id={campaignId}
+                      organiser="Vink"
+                      title={title}
+                      className="invisible group-hover:visible bottom-12 transition-all duration-200 transform ease-in-out"
+                    />
                   </div>
                   <div className="campaign-start flex items-center">
                     <div className="started-day flex whitespace-nowrap items-center">

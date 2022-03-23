@@ -9,7 +9,7 @@ function Explore() {
     document.title = 'Explore fundraisers | Beneficence';
   }, []);
   return (
-    <div>
+    <div className="w-full max-w-per-98 mx-auto overflow-hidden">
       <div>
         <div className="text-7xl text-bene-dark-blue font-bold text-center">
           <div className="m-auto0 py-14">Explore campaigns</div>
@@ -23,7 +23,7 @@ function Explore() {
             <div className="text-bene-light-blue">Join now!</div>
           </div>
           <div className="m-auto0 md:my-ne-2 md:ml-ne-2">
-            <img src={joinhand} alt="hands" className="max-h-15vw" />
+            <img src={joinhand} alt="hands" className="max-h-12rem" />
           </div>
         </div>
       </div>

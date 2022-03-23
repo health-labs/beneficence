@@ -63,7 +63,7 @@ const footerNav = [
 
 function Footer() {
   return (
-    <div className="footer-container bg-bene-dark-blue p-6">
+    <div className="footer-container bg-bene-dark-blue p-6 h-auto max-w-8xl mx-auto">
       <div className="container text-right text-bene-nav-opt min-w-full -mt-2">
         <span>For it is in giving that we receive</span>
       </div>

@@ -153,7 +153,7 @@ function Home() {
         </div>
 
         <div className="mp-quote-box-outer row text-center">
-          <div className="flex flex-col justify-center mp-quote-inner p-per-15 bg-no-repeat bg-bene-quote w-full h-full font-bold text-bxl text-bene-dark-blue max-h-px-425">
+          <div className="flex flex-col justify-center bg-cover mp-quote-inner p-per-15 bg-no-repeat bg-bene-quote w-full h-full font-bold text-bxl text-bene-dark-blue max-h-px-425">
             <div className="flex justify-center mb-2">
               <img src={quote} alt="quote" />
             </div>
