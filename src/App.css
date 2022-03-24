@@ -45,6 +45,8 @@
 .filter-bene-2 {
   filter: drop-shadow(0 4px 16px rgba(6, 26, 56, 0.1)) !important;
 }
+
+/* share */
 .share-hover:hover {
   filter: drop-shadow(1px 1px 1px rgba(6, 26, 56, 0.1)) !important;
   transform: translateY(-0.5em);
@@ -52,6 +54,38 @@
 }
 .share-hover {
   transition: transform 0.3s ease 0s;
+}
+.share-action-cst {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.share-action-cst::-webkit-scrollbar {
+  display: none;
+}
+@media (max-width: 768px) {
+  .copy-link {
+    max-width: fit-content !important;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .share-action-cst {
+    max-width: 40vw;
+  }
+}
+@media (max-width: 576px) {
+  .share-action-cst {
+    max-width: 75vw;
+  }
+  .show-modal {
+    min-width: 85vw !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .show-modal::-webkit-scrollbar {
+    display: none;
+  }
 }
 @keyframes showper {
   from {

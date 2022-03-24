@@ -10,6 +10,7 @@ import Terms from './pages/Terms';
 import Explore from './pages/Explore';
 import CampaignPage from './pages/Campaign/CampaignPage';
 import { LoadingAppProvider } from './context/LoadingApp';
+import { SingleModalProvider } from './context/SingleModalContext';
 
 function App() {
   return (
@@ -20,23 +21,25 @@ function App() {
       <BrowserRouter>
         <div className="h-auto w-full max-w-90rem mx-auto min-h-fit">
           <LoadingAppProvider>
-            <Routes>
-              <Route path="/" element={<Home />} />
+            <SingleModalProvider>
+              <Routes>
+                <Route path="/" element={<Home />} />
 
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/terms" element={<Terms />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
 
-              <Route path="/explore" element={<Explore />} />
-              <Route path="/campaign/:id" element={<CampaignPage />} />
-              <Route
-                path="*"
-                element={
-                  <div className="error-empty font-bold text-xl">
-                    Oops looks like you have hit an empty space.
-                  </div>
-                }
-              />
-            </Routes>
+                <Route path="/explore" element={<Explore />} />
+                <Route path="/campaign/:id" element={<CampaignPage />} />
+                <Route
+                  path="*"
+                  element={
+                    <div className="error-empty font-bold text-xl">
+                      Oops looks like you have hit an empty space.
+                    </div>
+                  }
+                />
+              </Routes>
+            </SingleModalProvider>
           </LoadingAppProvider>
         </div>
       </BrowserRouter>

@@ -9,6 +9,6 @@ function SignIn() {
     console.log(`Connection status: ${connected}`);
   }, [connected]);
 
-  return <WalletMultiButton>Sign in</WalletMultiButton>;
+  return <WalletMultiButton>{!connected && 'Sign in'}</WalletMultiButton>;
 }
 export default SignIn;

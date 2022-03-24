@@ -9,11 +9,10 @@ import { LoadingCtxType } from '../context/LoadingApp';
 
 function Explore() {
   const { isLoading, setIsLoading } = useLoading() as LoadingCtxType;
+
   useEffect(() => {
     document.title = 'Explore fundraisers | Beneficence';
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 100000);
+    setIsLoading(false);
   }, []);
   return (
     <div>
@@ -26,8 +25,8 @@ function Explore() {
           </div>
 
           <div className="explore-join-now text-3xl text-bene-dark-blue font-bold text-left p-8">
-            <div className="bg-bene-green-blue justify-between flex rounded-tl-bene-c-2 rounded-br-bene-c-2 px-6 py-12">
-              <div className="m-auto0">
+            <div className="bg-bene-green-blue justify-between flex rounded-tl-bene-c-2 rounded-br-bene-c-2 px-6 py-4 sm:py-8 md:py-12">
+              <div className="m-auto0 w-full sm:w-max">
                 Ongoing efforts to help save lives.
                 <div className="text-bene-light-blue">Join now!</div>
               </div>

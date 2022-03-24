@@ -46,6 +46,8 @@ module.exports = {
 
         'bene-nav-opt': 'rgba(255, 255, 255, 0.55)',
         'bene-nav-hopt': 'rgba(255, 255, 255, 0.75)',
+
+        'bene-overlay-backdrop': 'rgba(0, 0, 0, 0.86)',
       },
       fontSize: {
         '7xl': '2.6rem',
@@ -94,6 +96,8 @@ module.exports = {
         'vw-80': '80vw',
 
         em27: '27em',
+
+        '33rem': '33rem',
       },
       margin: {
         'cust-32': '32px',
@@ -137,6 +141,8 @@ module.exports = {
         'em-1-hf': '1.5em',
         'em-24': '24em',
         '90rem': '90rem',
+        'img-sm': '2.5rem',
+
         content: 'max-content',
 
         'px-30': '30px',
@@ -165,6 +171,8 @@ module.exports = {
 
         'em-3-1/4': '3.25rem',
         '12rem': '12rem',
+        '30rem': '30rem',
+        '33rem': '33rem',
       },
       borderRadius: {
         'bene-1': '22px',

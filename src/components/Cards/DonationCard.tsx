@@ -19,9 +19,12 @@ import StatsDiv from './Stats/StatsDiv';
 import beneTime from '../../assets/bene-time.svg';
 import PercentCircle from './Stats/PercentCircle';
 import ShareAction from '../Share/ShareAction';
+import useSingleModal from '../../hooks/useSingleModal';
+import ShareModal from '../Share/ShareModal';
 
 function DonationCard(props: CampaignCardProps) {
   const { imgSrc, title, description, link, angelsCount, campaignId } = props;
+  const { handleModalAction } = useSingleModal();
   return (
     <div>
       <div className="campaign-outer-box rounded-bene-c-1 snap-center shadow-c-1 max-w-sm m-auto md:m-0">
@@ -52,15 +55,34 @@ function DonationCard(props: CampaignCardProps) {
               </div>
               <div className="interaction-opt flex justify-between">
                 <div className="interaction-opt-inner-left flex my-auto mx-0">
-                  <div className="campaign-share mr-2 group cursor-pointer relative">
-                    <img src={share} alt="share" className="hover:opacity-75" />
+                  <button
+                    type="button"
+                    className="campaign-share mr-2 group cursor-pointer relative">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleModalAction(
+                          <ShareModal
+                            id="60"
+                            organiser="Vink"
+                            title="Test, hello good people"
+                            className="show-modal"
+                          />
+                        )
+                      }>
+                      <img
+                        src={share}
+                        alt="share"
+                        className="hover:opacity-75"
+                      />
+                    </button>
                     <ShareAction
                       id={campaignId}
                       organiser="Vink"
                       title={title}
-                      className="invisible group-hover:visible bottom-12 transition-all duration-200 transform ease-in-out"
+                      className="share-action-cst invisible group-hover:visible bottom-12 transition-all duration-200 transform ease-in-out overflow-x-scroll max-w-40vw md:max-w-min md:overflow-x-visible"
                     />
-                  </div>
+                  </button>
                   <div className="campaign-start flex items-center">
                     <div className="started-day flex whitespace-nowrap items-center">
                       <img

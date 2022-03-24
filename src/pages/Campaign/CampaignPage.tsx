@@ -10,6 +10,12 @@ import { generateRandomCardBg } from '../../utils/util';
 import { campColorRgb } from '../../const/campColors';
 import { rgbaToHex } from '../../utils/campaign';
 import DonateBox from '../../components/Campaign/DonateBox';
+import CampaignStory from '../../components/Campaign/Tabs/CampaignStory';
+import ProofOfNeed from '../../components/Campaign/Tabs/ProofOfNeed';
+import ProofOfUse from '../../components/Campaign/Tabs/ProofOfUse';
+import { TabContentType } from '../../types/CampaignDesc';
+import WhyDonate from '../../components/Campaign/Tabs/WhyDonate';
+import Donors from '../../components/Campaign/Tabs/Donors';
 
 const campData: Campaign = {
   id: '1',
@@ -27,28 +33,6 @@ const campData: Campaign = {
 
 const classNames = (...classes: any) => {
   return classes.filter(Boolean).join(' ');
-};
-
-type DonorTypes = {
-  name: string;
-  amount: number;
-  pubKey: string;
-  imgSrc?: string;
-};
-
-type TabContentType = {
-  Story: string;
-  PoN: {
-    text: string;
-    imgSrc: string[];
-  };
-  PoU: {
-    hasContent: boolean;
-    text: string;
-    imgSrc: string[];
-  };
-  whyDonate: { hasContent: boolean; text: string };
-  donors: DonorTypes[];
 };
 
 function CampaignPage() {
@@ -178,7 +162,7 @@ function CampaignPage() {
                       `w-full p-2 px-4 font-semibold text-lg text-bene-f-${campThemeName} whitespace-nowrap rounded-lg focus:outline-none`,
                       selected
                         ? `bg-white shadow-bene-f-${campThemeName}`
-                        : `text-bene-cmp-${campThemeName} hover:bg-white/[0.12] hover:text-white`,
+                        : `text-bene-cmp-${campThemeName} hover:bg-white hover:opacity-70`,
                       tabt === 'Proof of use' &&
                         !pouEnabled &&
                         `cursor-not-allowed disabled opacity-50 hover:text-bene-f-${campThemeName}`
@@ -202,96 +186,26 @@ function CampaignPage() {
               <Tab.Panels className="tab-panels">
                 {/* Story */}
                 <Tab.Panel className="tab-panel">
-                  <div className="text-left mt-2">
-                    <div className="text-lg font-semibold py-2">
-                      Campaign Story
-                    </div>
-                    <p>{tabContent?.Story}</p>
-                  </div>
+                  <CampaignStory story={tabContent?.Story} />
                 </Tab.Panel>
                 {/* Proof of need */}
                 <Tab.Panel className="tab-panel">
-                  <div className="py-3 text-left mt-2">
-                    <div className="text-lg font-semibold py-2">
-                      Proof of need
-                    </div>
-                    <p>{tabContent?.PoN.text}</p>
-                    {tabContent?.PoN.imgSrc.map((imgSrc, index) => (
-                      <img
-                        src={imgSrc}
-                        alt={`${title} PoN ${index}`}
-                        className="w-beat-2 rounded-bene-c-2"
-                      />
-                    ))}
-                  </div>
+                  <ProofOfNeed pon={tabContent?.PoN} title={title} />
                 </Tab.Panel>
                 {/* Proof of use */}
                 <Tab.Panel className="tab-panel">
-                  <div className="py-3 text-left mt-2">
-                    <div className="text-lg font-semibold py-2">
-                      Proof of use
-                    </div>
-                    <p>
-                      {tabContent?.PoU?.hasContent
-                        ? tabContent?.PoU?.text
-                        : 'No proof of use yet'}
-                    </p>
-                    {tabContent?.PoU?.imgSrc.map((imgSrc, index) => (
-                      <img
-                        src={imgSrc}
-                        alt={`${title} PoU ${index}`}
-                        className="w-beat-2 rounded-bene-c-2"
-                      />
-                    ))}
-                  </div>
+                  <ProofOfUse pou={tabContent?.PoU} title={title} />
                 </Tab.Panel>
-
                 {/* Why donate */}
                 <Tab.Panel className="tab-panel">
-                  <div className="py-3 text-left mt-2">
-                    <div className="text-lg font-semibold py-2">
-                      Why Donate?
-                    </div>
-                    <p>{tabContent?.whyDonate?.text}</p>
-                  </div>
+                  <WhyDonate whyDonate={tabContent?.whyDonate} />
                 </Tab.Panel>
                 <Tab.Panel className="tab-panel">
-                  <div className="py-3 text-left mt-2">
-                    <div className="text-lg font-semibold py-2 text-center">
-                      Donors
-                    </div>
-                    <div className="flex flex-wrap flex-row justify-between">
-                      {tabContent?.donors.map((donor, index) => (
-                        <div className="w-1/2 py-2 flex justify-center">
-                          <div
-                            className={`flex max-w-per-65 items-center p-4 justify-center border-2 border-bg-bene-cmp-${campThemeName} border-dashed rounded-lg`}>
-                            <img
-                              src={donor.imgSrc}
-                              alt={`${title} donor ${index}`}
-                              className="w-beat-2 rounded-bene-c-2 max-w-px-40"
-                            />
-                            <div className="text-lg font-semibold p-2">
-                              {donor.name}
-                            </div>
-                            contributed
-                            <div className="text-lg font-semibold p-2">
-                              ${donor.amount}
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                      {tabContent?.donors.length === 0 && (
-                        <div className="w-full py-2 flex justify-center">
-                          <div
-                            className={`flex w-full items-center justify-center border-2 border-bg-bene-cmp-${campThemeName} border-dashed rounded-lg`}>
-                            <div className="text-lg font-semibold p-2">
-                              No donors yet
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+                  <Donors
+                    title={title}
+                    donors={tabContent?.donors}
+                    ctheme={campThemeName}
+                  />
                 </Tab.Panel>
               </Tab.Panels>
             )}

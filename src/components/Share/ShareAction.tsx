@@ -41,7 +41,7 @@ function ShareAction({
       img: whatsappCamp,
       alt: 'Share on Whatsapp',
       icoName: 'whatsapp',
-      url: `https://api.whatsapp.com/send?text=Hey there, Check out this campaign on Beneficence. Donate to ${organiser}'s campaign to help their medical needs. Every donation counts. &url=https://${url}/campaign/${id}`,
+      url: `https://api.whatsapp.com/send?text=Hey there, Check out this campaign on Beneficence. Donate to ${organiser}'s campaign to help their medical needs. Every donation counts. https://${url}/campaign/${id}`,
     },
     {
       img: mailCamp,
@@ -96,7 +96,7 @@ function ShareAction({
           </div>
         ))}
       </div>
-      <div className="copy-link p-4 pt-1 flex flex-row items-center">
+      <div className="max-w-fit copy-link p-4 pt-1 flex flex-row items-center">
         <input
           type="text"
           value={`https://${url}/campaign/${id}`}
