@@ -1,4 +1,5 @@
 import React from 'react';
+import useSingleModal from '../../../hooks/useSingleModal';
 import DonationSummary from './DonationSummary';
 import DonorDetail from './DonorDetail';
 
@@ -11,6 +12,7 @@ function DonateModal() {
       currency: 'USD',
     },
   };
+  const { handleModalAction } = useSingleModal();
 
   return (
     <div className="donate-modal-content bg-white p-2 w-9/12 rounded-bene-c-2">
@@ -41,13 +43,14 @@ function DonateModal() {
       </div>
       <div className="w-2/3 m-auto">
         <div className="donate-body">
-          <DonationSummary />
+          <DonorDetail />
         </div>
       </div>
       <div className="donate-footer flex flex-row justify-between items-end">
         <div>
           <button
             type="button"
+            onClick={handleModalAction}
             className="text-bene-dark-blue font-bold hover:underline px-2 hover:cursor-pointer">
             Close
           </button>

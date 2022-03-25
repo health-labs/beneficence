@@ -15,7 +15,7 @@ function ProofOfNeed({ pon, title }: PONProps): JSX.Element {
         <img
           src={src}
           alt={`${title} PoN ${index}`}
-          className="w-beat-2 rounded-bene-c-2"
+          className="w-beat-2 rounded-bene-c-2 w-full my-2"
         />
       ))}
     </div>

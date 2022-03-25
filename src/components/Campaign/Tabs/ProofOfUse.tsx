@@ -15,7 +15,7 @@ function ProofOfUse({ pou, title }: POUProps): JSX.Element {
         <img
           src={imgSrc}
           alt={`${title} PoU ${index}`}
-          className="w-beat-2 rounded-bene-c-2"
+          className="w-beat-2 rounded-bene-c-2 w-full my-2"
         />
       ))}
     </div>
