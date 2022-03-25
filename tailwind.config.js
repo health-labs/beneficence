@@ -1,6 +1,20 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+const rgbaToHex = (rgbaColor, name, code) => {
+  const rgba = rgbaColor.replace('rgba(', '').replace(')', '').split(',');
+  const r = parseInt(rgba[0], 10).toString(16);
+  const g = parseInt(rgba[1], 10).toString(16);
+  const b = parseInt(rgba[2], 10).toString(16);
+  const count = rgba.length;
+  const a = count > 3 ? Math.round(rgba[3] * 255).toString(16) : 'ff';
+  const rgbaVal = `#${r}${g}${b}${a}`;
+
+  let custColorExt = {};
+  custColorExt['bene-' + code + '-' + name] = rgbaVal;
+  return custColorExt;
+};
+
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   content: ['./src/*.tsx'],
@@ -20,34 +34,34 @@ module.exports = {
 
         'bene-dark-blue-75': '#003D84BF',
 
-        'bene-cmp-sky-blue': 'rgba(22, 138, 244, 0.2)',
-        'bene-cmp-violet': 'rgba(93, 22, 244, 0.2)',
-        'bene-cmp-green': 'rgba(74, 222, 128, 0.2)',
-        'bene-cmp-rosy-red': 'rgba(251, 113, 133, 0.2)',
-        'bene-cmp-emerald': 'rgba(52, 211, 153, 0.2)',
-        'bene-cmp-blue': 'rgba(96, 165, 250, 0.2)',
-        'bene-cmp-purple': 'rgba(192, 132, 252, 0.2)',
-        'bene-cmp-pink': 'rgba(244, 114, 182, 0.2)',
-        'bene-cmp-cyan': 'rgba(34, 211, 238, 0.2)',
-        'bene-cmp-grey': 'rgba(148, 163, 184, 0.2)',
-        'bene-cmp-violet-lt': 'rgba(232, 121, 249, 0.2)',
-
-        'bene-f-sky-blue': 'rgba(22, 138, 244)',
-        'bene-f-violet': 'rgba(93, 22, 244)',
-        'bene-f-green': 'rgba(74, 222, 128)',
-        'bene-f-rosy-red': 'rgba(251, 113, 133)',
-        'bene-f-emerald': 'rgba(52, 211, 153)',
-        'bene-f-blue': 'rgba(96, 165, 250)',
-        'bene-f-purple': 'rgba(192, 132, 252)',
-        'bene-f-pink': 'rgba(244, 114, 182)',
-        'bene-f-cyan': 'rgba(34, 211, 238)',
-        'bene-f-grey': 'rgba(148, 163, 184)',
-        'bene-f-violet-lt': 'rgba(232, 121, 249)',
-
-        'bene-nav-opt': 'rgba(255, 255, 255, 0.55)',
-        'bene-nav-hopt': 'rgba(255, 255, 255, 0.75)',
-
         'bene-overlay-backdrop': 'rgba(0, 0, 0, 0.86)',
+
+        ...rgbaToHex('rgba(22, 138, 244, 0.2)', 'sky-blue', 'cmp'),
+        ...rgbaToHex('rgba(93, 22, 244, 0.2)', 'violet', 'cmp'),
+        ...rgbaToHex('rgba(74, 222, 128, 0.2)', 'green', 'cmp'),
+        ...rgbaToHex('rgba(251, 113, 133, 0.2)', 'rosy-red', 'cmp'),
+        ...rgbaToHex('rgba(52, 211, 153, 0.2)', 'emerald', 'cmp'),
+        ...rgbaToHex('rgba(96, 165, 250, 0.2)', 'blue', 'cmp'),
+        ...rgbaToHex('rgba(192, 132, 252, 0.2)', 'purple', 'cmp'),
+        ...rgbaToHex('rgba(244, 114, 182, 0.2)', 'pink', 'cmp'),
+        ...rgbaToHex('rgba(34, 211, 238, 0.2)', 'cyan', 'cmp'),
+        ...rgbaToHex('rgba(148, 163, 184, 0.2)', 'grey', 'cmp'),
+        ...rgbaToHex('rgba(232, 121, 249, 0.2)', 'violet-lt', 'cmp'),
+
+        ...rgbaToHex('rgba(22, 138, 244)', 'sky-blue', 'f'),
+        ...rgbaToHex('rgba(93, 22, 244)', 'violet', 'f'),
+        ...rgbaToHex('rgba(74, 222, 128)', 'green', 'f'),
+        ...rgbaToHex('rgba(251, 113, 133)', 'rosy-red', 'f'),
+        ...rgbaToHex('rgba(52, 211, 153)', 'emerald', 'f'),
+        ...rgbaToHex('rgba(96, 165, 250)', 'blue', 'f'),
+        ...rgbaToHex('rgba(192, 132, 252)', 'purple', 'f'),
+        ...rgbaToHex('rgba(244, 114, 182)', 'pink', 'f'),
+        ...rgbaToHex('rgba(34, 211, 238)', 'cyan', 'f'),
+        ...rgbaToHex('rgba(148, 163, 184)', 'grey', 'f'),
+        ...rgbaToHex('rgba(232, 121, 249)', 'violet-lt', 'f'),
+
+        ...rgbaToHex('rgba(255, 255, 255, 0.55)', 'opt', 'nav'),
+        ...rgbaToHex('rgba(255, 255, 255, 0.75)', 'hopt', 'nav'),
       },
       fontSize: {
         '7xl': '2.6rem',
