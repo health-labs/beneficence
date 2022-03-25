@@ -11,7 +11,7 @@ function Modal() {
     <Dialog
       open={isOpen}
       onClose={handleModalAction}
-      className="fixed top-0 left-0 h-screen w-full flex items-center justify-center bg-bene-overlay-backdrop transition transform duration-125 ease-in-out z-6">
+      className="fixed top-0 left-0 h-screen w-full flex items-center justify-center bg-bene-overlay-backdrop transition transform duration-125 ease-in-out z-20">
       {content}
       <Dialog.Overlay />
     </Dialog>,

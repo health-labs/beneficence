@@ -142,15 +142,18 @@ module.exports = {
         'em-24': '24em',
         '90rem': '90rem',
         'img-sm': '2.5rem',
-
-        content: 'max-content',
+        '23rem': '23rem',
 
         'px-30': '30px',
         'px-l': '1024px',
+        'px-infobox': '21rem',
         'px-40': '40px',
 
         'per-30': '30%',
         'per-33': '33%',
+        'per-40': '40%',
+        'per-50': '50%',
+        'per-60': '60%',
         'per-65': '65%',
         'per-98': '98%',
 

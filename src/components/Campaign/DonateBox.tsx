@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { campColorRgb } from '../../const/campColors';
+import useSingleModal from '../../hooks/useSingleModal';
 import { rgbaToHex } from '../../utils/campaign';
 import DonateButton from '../Button/DonateButton';
 import CustomAmount from '../DonateBox/CustomAmount';
 import DonationAmount from '../DonateBox/DonationAmount';
+import DonateModal from '../DonateBox/Steps/DonateModal';
 
 function DonateBox({ data, ctheme }: any) {
   const {
@@ -59,11 +61,14 @@ function DonateBox({ data, ctheme }: any) {
     return constAmt;
   };
 
+  const { isOpen, handleModalAction } = useSingleModal();
   const onClickDonate = (e: React.MouseEvent) => {
     e.preventDefault();
     if (Number(selectedAmt) < 1) {
-      alert('Err: Minimum donation amount is $1');
+      alert('Sorry! Minimum donation amount is $1');
       setselectedAmt(0);
+    } else {
+      handleModalAction(<DonateModal />);
     }
   };
 

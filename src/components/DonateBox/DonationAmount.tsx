@@ -16,11 +16,11 @@ function DonationAmount({ amount, active, color, setActiveVal }: AmtProps) {
 
   return (
     <button
-      className={`rounded-bene-c-2 p-4 font-semibold text-2xl hover:text-3xl hover:text-white hover:${color} transform group ${ifActive}`}
+      className={`rounded-bene-c-2 p-4 font-semibold md:text-2xl hover:text-3xl hover:text-white hover:${color} transform group ${ifActive}`}
       type="button"
       onClick={() => setActive(amount.value)}
       value={amount.value}>
-      <div className="transform group-hover:scale-110 hover:text-bold transition duration-450 ease-in">
+      <div className="transform group-hover:scale-110 hover:text-bold transition duration-450 ease-in truncate">
         {amount.label}
       </div>
     </button>

@@ -16,7 +16,7 @@ import {
 } from '@solana/wallet-adapter-wallets';
 import { clusterApiUrl } from '@solana/web3.js';
 
-export default function ContextProvider({
+export function WalletConnectContextProvider({
   children,
 }: {
   children: ReactNode;

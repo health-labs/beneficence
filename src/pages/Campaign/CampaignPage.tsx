@@ -16,6 +16,7 @@ import ProofOfUse from '../../components/Campaign/Tabs/ProofOfUse';
 import { TabContentType } from '../../types/CampaignDesc';
 import WhyDonate from '../../components/Campaign/Tabs/WhyDonate';
 import Donors from '../../components/Campaign/Tabs/Donors';
+import useWindowResize from '../../hooks/useWindowResize';
 
 const campData: Campaign = {
   id: '1',
@@ -51,9 +52,7 @@ function CampaignPage() {
   } = campData;
   const campThemeName = generateRandomCardBg();
   const campThemeColor = rgbaToHex(campColorRgb[campThemeName]);
-  useEffect(() => {
-    document.title = `${title} | Beneficence`;
-  }, []);
+
   const tabTitles = [
     'Story',
     'Proof of need',
@@ -76,6 +75,12 @@ function CampaignPage() {
     donors: [],
   });
   const [pouEnabled, setPouEnabled] = useState(false);
+  const winDim = useWindowResize();
+  useEffect(() => {
+    if (title) {
+      document.title = `${title} | Beneficence`;
+    }
+  }, []);
   useEffect(() => {
     setTabContent({
       Story:
@@ -141,16 +146,26 @@ function CampaignPage() {
 
   return (
     <div className="flex p-8 pl-per-5 flex-wrap flex-row justify-between">
-      <div className="basis-3/5">
+      <div className="basis-3/5 w-full md:w-fit md:max-w-per-60">
         <Title title={title} />
         <div className="py-3">
           <img
             src={image}
             alt={`${title} cover`}
-            className="w-beat-2 rounded-bene-c-2"
+            className="w-beat-2 rounded-bene-c-2  w-full"
           />
         </div>
-        <div className="py-3 w-full sm:max-w-60vw py-auto px-0">
+        {winDim.width < 768 && (
+          <div className="basis-2/5 flex flex-col md:max-w-per-40 mx-auto py-4 items-center">
+            <div className="flex-grow">
+              <div className="sticky top-12 gap-8 flex flex-col">
+                <ShortInfoCard data={campData} ctheme={campThemeName} />
+                <DonateBox data={campData} ctheme={campThemeName} />
+              </div>
+            </div>
+          </div>
+        )}
+        <div className="py-3 w-full py-auto px-0 overflow-hidden">
           <Tab.Group defaultIndex={0}>
             <Tab.List
               className={`tab-list flex p-2 min-w-min space-x-1 bg-bene-cmp-${campThemeName} rounded-xl`}>
@@ -212,14 +227,16 @@ function CampaignPage() {
           </Tab.Group>
         </div>
       </div>
-      <div className="basis-2/5 flex flex-col md:max-w-per-30">
-        <div className="flex-grow">
-          <div className="sticky top-12 gap-8 flex flex-col">
-            <ShortInfoCard data={campData} ctheme={campThemeName} />
-            <DonateBox data={campData} ctheme={campThemeName} />
+      {winDim.width > 768 && (
+        <div className="basis-2/5 flex flex-col md:max-w-per-40 pl-4 mx-auto">
+          <div className="flex-grow">
+            <div className="sticky top-12 gap-8 flex flex-col w-full max-w-23rem">
+              <ShortInfoCard data={campData} ctheme={campThemeName} />
+              <DonateBox data={campData} ctheme={campThemeName} />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
