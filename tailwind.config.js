@@ -1,8 +1,70 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+const customColorWCode = (rgbaColor, name, code) => {
+  const rgba = rgbaColor.replace('rgba(', '').replace(')', '').split(',');
+  const r = parseInt(rgba[0], 10).toString(16);
+  const g = parseInt(rgba[1], 10).toString(16);
+  const b = parseInt(rgba[2], 10).toString(16);
+  const count = rgba.length;
+  const a = count > 3 ? Math.round(rgba[3] * 255).toString(16) : 'ff';
+  const rgbaVal = `#${r}${g}${b}${a}`;
+
+  let custColorExt = {};
+  custColorExt['bene-' + code + '-' + name] = rgbaVal;
+  return custColorExt;
+};
+const customColorsLst = {
+  ...customColorWCode('rgba(22, 138, 244, 0.2)', 'sky-blue', 'cmp'),
+  ...customColorWCode('rgba(93, 22, 244, 0.2)', 'violet', 'cmp'),
+  ...customColorWCode('rgba(74, 222, 128, 0.2)', 'green', 'cmp'),
+  ...customColorWCode('rgba(251, 113, 133, 0.2)', 'rosy-red', 'cmp'),
+  ...customColorWCode('rgba(52, 211, 153, 0.2)', 'emerald', 'cmp'),
+  ...customColorWCode('rgba(96, 165, 250, 0.2)', 'blue', 'cmp'),
+  ...customColorWCode('rgba(192, 132, 252, 0.2)', 'purple', 'cmp'),
+  ...customColorWCode('rgba(244, 114, 182, 0.2)', 'pink', 'cmp'),
+  ...customColorWCode('rgba(34, 211, 238, 0.2)', 'cyan', 'cmp'),
+  ...customColorWCode('rgba(148, 163, 184, 0.2)', 'grey', 'cmp'),
+  ...customColorWCode('rgba(232, 121, 249, 0.2)', 'violet-lt', 'cmp'),
+
+  ...customColorWCode('rgba(22, 138, 244)', 'sky-blue', 'f'),
+  ...customColorWCode('rgba(93, 22, 244)', 'violet', 'f'),
+  ...customColorWCode('rgba(74, 222, 128)', 'green', 'f'),
+  ...customColorWCode('rgba(251, 113, 133)', 'rosy-red', 'f'),
+  ...customColorWCode('rgba(52, 211, 153)', 'emerald', 'f'),
+  ...customColorWCode('rgba(96, 165, 250)', 'blue', 'f'),
+  ...customColorWCode('rgba(192, 132, 252)', 'purple', 'f'),
+  ...customColorWCode('rgba(244, 114, 182)', 'pink', 'f'),
+  ...customColorWCode('rgba(34, 211, 238)', 'cyan', 'f'),
+  ...customColorWCode('rgba(148, 163, 184)', 'grey', 'f'),
+  ...customColorWCode('rgba(232, 121, 249)', 'violet-lt', 'f'),
+
+  ...customColorWCode('rgba(255, 255, 255, 0.55)', 'opt', 'nav'),
+  ...customColorWCode('rgba(255, 255, 255, 0.75)', 'hopt', 'nav'),
+};
+
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  purge: {
+    content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+    options: {
+      safelist: {
+        standard: [
+          /bene-(cmp|f)-sky-blue/,
+          /bene-(cmp|f)-violet/,
+          /bene-(cmp|f)-green/,
+          /bene-(cmp|f)-rosy-red/,
+          /bene-(cmp|f)-emerald/,
+          /bene-(cmp|f)-blue/,
+          /bene-(cmp|f)-purple/,
+          /bene-(cmp|f)-pink/,
+          /bene-(cmp|f)-cyan/,
+          /bene-(cmp|f)-grey/,
+          /bene-(cmp|f)-violet-lt/,
+          /bene-nav-(opt|hopt)/,
+        ],
+      },
+    },
+  },
   content: ['./src/*.tsx'],
   darkMode: false, // or 'media' or 'class'
   important: true,
@@ -20,34 +82,8 @@ module.exports = {
 
         'bene-dark-blue-75': '#003D84BF',
 
-        'bene-cmp-sky-blue': 'rgba(22, 138, 244, 0.2)',
-        'bene-cmp-violet': 'rgba(93, 22, 244, 0.2)',
-        'bene-cmp-green': 'rgba(74, 222, 128, 0.2)',
-        'bene-cmp-rosy-red': 'rgba(251, 113, 133, 0.2)',
-        'bene-cmp-emerald': 'rgba(52, 211, 153, 0.2)',
-        'bene-cmp-blue': 'rgba(96, 165, 250, 0.2)',
-        'bene-cmp-purple': 'rgba(192, 132, 252, 0.2)',
-        'bene-cmp-pink': 'rgba(244, 114, 182, 0.2)',
-        'bene-cmp-cyan': 'rgba(34, 211, 238, 0.2)',
-        'bene-cmp-grey': 'rgba(148, 163, 184, 0.2)',
-        'bene-cmp-violet-lt': 'rgba(232, 121, 249, 0.2)',
-
-        'bene-f-sky-blue': 'rgba(22, 138, 244)',
-        'bene-f-violet': 'rgba(93, 22, 244)',
-        'bene-f-green': 'rgba(74, 222, 128)',
-        'bene-f-rosy-red': 'rgba(251, 113, 133)',
-        'bene-f-emerald': 'rgba(52, 211, 153)',
-        'bene-f-blue': 'rgba(96, 165, 250)',
-        'bene-f-purple': 'rgba(192, 132, 252)',
-        'bene-f-pink': 'rgba(244, 114, 182)',
-        'bene-f-cyan': 'rgba(34, 211, 238)',
-        'bene-f-grey': 'rgba(148, 163, 184)',
-        'bene-f-violet-lt': 'rgba(232, 121, 249)',
-
-        'bene-nav-opt': 'rgba(255, 255, 255, 0.55)',
-        'bene-nav-hopt': 'rgba(255, 255, 255, 0.75)',
-
         'bene-overlay-backdrop': 'rgba(0, 0, 0, 0.86)',
+        ...customColorsLst,
       },
       fontSize: {
         '7xl': '2.6rem',
