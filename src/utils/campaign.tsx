@@ -24,3 +24,11 @@ export const rgbaToHex = (rgb: string) => {
 export const calcProgressPercent = (raised: number, goal: number) => {
   return Math.round((raised / goal) * 100);
 };
+
+export const epochtoDate = (epoch: number) => {
+  const date = new Date(0);
+  date.setUTCSeconds(epoch);
+  return `${date.toLocaleString('default', {
+    month: 'short',
+  })} ${date.getDate()}, ${date.getFullYear()}`;
+};

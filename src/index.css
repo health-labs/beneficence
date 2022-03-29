@@ -16,6 +16,10 @@ code {
     monospace;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
 .wallet-adapter-button.wallet-adapter-button-trigger {
   border-radius: 14px;
   background: rgb(0, 61, 132);

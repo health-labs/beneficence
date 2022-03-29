@@ -9,6 +9,7 @@ import Terms from './pages/Terms';
 import Explore from './pages/Explore';
 import CampaignPage from './pages/Campaign/CampaignPage';
 import AppCtxProvider from './context';
+import StartCampaign from './pages/StartCampaign';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
 
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
-
+              <Route path="/start-a-fund" element={<StartCampaign />} />
               <Route path="/explore" element={<Explore />} />
               <Route path="/campaign/:id" element={<CampaignPage />} />
               <Route

@@ -75,12 +75,12 @@ function CampaignPage() {
     donors: [],
   });
   const [pouEnabled, setPouEnabled] = useState(false);
-  const winDim = useWindowResize();
   useEffect(() => {
     if (title) {
       document.title = `${title} | Beneficence`;
     }
   }, []);
+
   useEffect(() => {
     setTabContent({
       Story:
@@ -155,16 +155,16 @@ function CampaignPage() {
             className="w-beat-2 rounded-bene-c-2  w-full"
           />
         </div>
-        {winDim.width < 768 && (
-          <div className="basis-2/5 flex flex-col md:max-w-per-40 mx-auto py-4 items-center">
-            <div className="flex-grow">
-              <div className="sticky top-12 gap-8 flex flex-col">
-                <ShortInfoCard data={campData} ctheme={campThemeName} />
-                <DonateBox data={campData} ctheme={campThemeName} />
-              </div>
+
+        <div className="basis-2/5 md:hidden flex flex-col md:max-w-per-40 mx-auto py-4 items-center">
+          <div className="flex-grow">
+            <div className="sticky top-12 gap-8 flex flex-col">
+              <ShortInfoCard data={campData} ctheme={campThemeName} />
+              <DonateBox data={campData} ctheme={campThemeName} />
             </div>
           </div>
-        )}
+        </div>
+
         <div className="py-3 w-full py-auto px-0 overflow-hidden">
           <Tab.Group defaultIndex={0}>
             <Tab.List
@@ -227,16 +227,15 @@ function CampaignPage() {
           </Tab.Group>
         </div>
       </div>
-      {winDim.width > 768 && (
-        <div className="basis-2/5 flex flex-col md:max-w-per-40 pl-4 mx-auto">
-          <div className="flex-grow">
-            <div className="sticky top-12 gap-8 flex flex-col w-full max-w-23rem">
-              <ShortInfoCard data={campData} ctheme={campThemeName} />
-              <DonateBox data={campData} ctheme={campThemeName} />
-            </div>
+
+      <div className="basis-2/5 donate-bar-right flex flex-col md:max-w-per-40  pl-4 mx-auto">
+        <div className="flex-grow">
+          <div className="sticky top-12 gap-8 flex flex-col w-full max-w-23rem">
+            <ShortInfoCard data={campData} ctheme={campThemeName} />
+            <DonateBox data={campData} ctheme={campThemeName} />
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

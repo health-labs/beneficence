@@ -200,6 +200,7 @@ module.exports = {
         'em-3-1/4': '3.25rem',
         '85vh': '85vh',
         '48px': '48px',
+        '33px': '33px',
       },
       maxHeight: {
         'px-425': '425px',

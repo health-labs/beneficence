@@ -62,9 +62,13 @@
 .share-action-cst::-webkit-scrollbar {
   display: none;
 }
-@media (max-width: 768px) {
+
+@media screen and (max-width: 768px) {
   .copy-link {
     max-width: fit-content !important;
+  }
+  .donate-bar-right {
+    display: none !important;
   }
 }
 @media (min-width: 576px) and (max-width: 768px) {
@@ -72,7 +76,7 @@
     max-width: 40vw;
   }
 }
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
   .share-action-cst {
     max-width: 75vw;
   }

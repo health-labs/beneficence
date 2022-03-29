@@ -63,7 +63,7 @@ const footerNav = [
 
 function Footer() {
   return (
-    <div className="footer-container bg-bene-dark-blue p-6 h-auto max-w-8xl mx-auto">
+    <div className="footer-container bg-bene-dark-blue p-6">
       <div className="container text-right text-bene-nav-opt min-w-full -mt-2">
         <span>For it is in giving that we receive</span>
       </div>
@@ -95,7 +95,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-container-inner self-center mt-8 m-auto w-per-100 pl-cust-r-2 md:pl-0 sm:pl-cust-r-5">
-          <div className="footer-nav-container md:flex md:justify-between md:m-auto max-w-md ">
+          <div className="footer-nav-container z-10 relative md:flex md:justify-between md:m-auto max-w-md ">
             {footerNav.map((nav, index) => {
               return (
                 <div className="footer-nav-item mb-8">

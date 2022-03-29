@@ -16,7 +16,7 @@ export type PoNTypes = {
   imgSrc: string[];
 };
 
-export type WhyDonateType = { hasContent: boolean; text: string };
+export type WhyDonateType = { hasContent: boolean; text?: string };
 
 export type TabContentType = {
   Story: string;
