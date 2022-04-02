@@ -17,7 +17,7 @@ function App() {
       <AppCtxProvider>
         <Header />
         <BrowserRouter>
-          <div className="h-auto w-full max-w-90rem mx-auto min-h-fit">
+          <div className="bene-body h-auto w-full max-w-90rem mx-auto min-h-fit">
             <Routes>
               <Route path="/" element={<Home />} />
 

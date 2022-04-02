@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+.bene-body {
+  flex-grow: 1;
+}
+
 .error-empty {
   padding-top: 35vh;
   padding-bottom: 35vh;

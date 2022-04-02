@@ -66,12 +66,12 @@ function ActiveWizard({ wizrdIdx, wizrdNum }: any) {
             ? 'w-full flex items-center'
             : 'flex items-center'
         }>
-        <div className="relative flex flex-col items-center text-teal-600">
+        <div className="relative flex flex-col items-center text-bene-dark-blue">
           <div
-            className={`rounded-full transition duration-500 ease-in-out border-2 border-gray-300 h-12 w-12 flex items-center justify-center py-3  ${
+            className={`rounded-full transition duration-500 ease-in-out border-2 border-white h-8 w-8 flex items-center justify-center py-3  ${
               step.selected
-                ? 'bg-green-600 text-white font-bold border border-green-600 '
-                : ''
+                ? 'bg-bene-dark-blue text-white font-bold border border-bene-dark-blue '
+                : 'bg-white font-bold'
             }`}>
             {step.completed ? (
               <span className="text-white font-bold text-xl">&#10003;</span>
@@ -80,7 +80,7 @@ function ActiveWizard({ wizrdIdx, wizrdNum }: any) {
             )}
           </div>
           <div
-            className={`absolute top-0  text-center mt-16 w-32 text-xs font-medium uppercase ${
+            className={`absolute top-0  text-center mt-16 w-8 text-xs font-medium uppercase ${
               step.highlighted ? 'text-gray-900' : 'text-gray-400'
             }`}>
             {step.description}
@@ -88,7 +88,7 @@ function ActiveWizard({ wizrdIdx, wizrdNum }: any) {
         </div>
         <div
           className={`flex-auto border-t-2 transition duration-500 ease-in-out  ${
-            step.completed ? 'border-green-600' : 'border-gray-300 '
+            step.completed ? 'border-bene-dark-blue' : 'border-white '
           }  `}
         />
       </div>
@@ -96,7 +96,7 @@ function ActiveWizard({ wizrdIdx, wizrdNum }: any) {
   });
 
   return (
-    <div className="mx-4 p-4 flex justify-between items-center">
+    <div className="mx-auto mt-2 max-w-per-60 p-4 flex justify-between items-center">
       {stepsDisplay}
     </div>
   );

@@ -56,3 +56,22 @@ export const amtAsM = (amount: number) => {
   }
   return amountWithCommas(amount);
 };
+
+export const dateAsTimeStamp = () => {
+  const date = new Date();
+  return date.getTime();
+};
+
+export const emailAsEncodedId = (email: string) => {
+  const emailStrt = email.split('@')[0];
+  const encodedId = Buffer.from(emailStrt).toString('base64');
+  const res = encodedId.length < 5 ? encodedId : encodedId.substring(0, 5);
+  return res;
+};
+
+export const formattedUserId = (pk: string, email: string) => {
+  return `${emailAsEncodedId(email)}${pk.substring(
+    1,
+    3
+  )}${dateAsTimeStamp()}${pk}`;
+};
