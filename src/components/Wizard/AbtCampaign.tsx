@@ -63,10 +63,6 @@ export default function AbtCampaign() {
   const handleFileUploadToArweave = async (fileblb: Blob, fname: string) => {
     const { arweave, jwk } = await ConnectAr();
     const fileread = new window.FileReader();
-    fileread.readAsArrayBuffer(fileblb);
-    fileread.onloadend = () => {
-      uploadAsBuffer(fileread.result as ArrayBuffer);
-    };
     const uploadAsBuffer = async (fr: ArrayBuffer) => {
       const fileBuffer = await Buffer.from(fr);
       const fileType = fileblb?.type;
@@ -110,6 +106,10 @@ export default function AbtCampaign() {
       } else {
         alert('File size is too large');
       }
+    };
+    fileread.readAsArrayBuffer(fileblb);
+    fileread.onloadend = () => {
+      uploadAsBuffer(fileread.result as ArrayBuffer);
     };
   };
   useEffect(() => {

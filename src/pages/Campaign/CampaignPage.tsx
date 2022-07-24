@@ -152,7 +152,7 @@ function CampaignPage() {
           <img
             src={image}
             alt={`${title} cover`}
-            className="w-beat-2 rounded-bene-c-2 w-full"
+            className="rounded-bene-c-2 w-full"
           />
         </div>
 

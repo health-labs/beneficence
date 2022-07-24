@@ -178,7 +178,9 @@ module.exports = {
         'em-5': '5em',
         'em-7': '7em',
         'em-3': '3em',
+        'em-2': '2em',
         'em-1-hf': '1.5em',
+        'em-1': '1em',
         'em-24': '24em',
         '90rem': '90rem',
         'img-sm': '2.5rem',
@@ -198,11 +200,13 @@ module.exports = {
         'per-98': '98%',
 
         '60vw': '60vw',
+        '74vw': '74vw',
         '80vw': '80vw',
       },
       minHeight: {
         'em-3-1/4': '3.25rem',
         '85vh': '85vh',
+        '62px': '62px',
         '48px': '48px',
         '33px': '33px',
         'v1screen': 'calc(100vh - 30px)',

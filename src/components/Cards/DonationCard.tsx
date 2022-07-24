@@ -77,6 +77,7 @@ function DonationCard(props: CampaignCardProps) {
                     className="campaign-share mr-2 group cursor-pointer relative">
                     <button
                       type="button"
+                      className="flex"
                       onClick={() =>
                         handleModalAction(
                           <ShareModal
@@ -101,7 +102,7 @@ function DonationCard(props: CampaignCardProps) {
                     />
                   </button>
                   <div className="campaign-start flex items-center">
-                    <div className="started-day flex whitespace-nowrap items-center">
+                    <div className="started-day flex whitespace-nowrap items-center overflow-hidden max-w-em-2">
                       <img
                         src={beneTime}
                         alt="started"

@@ -11,9 +11,9 @@ function Donors({ donors, title, ctheme }: DonorProps): JSX.Element {
   return (
     <div className="py-3 text-left mt-2">
       <div className="text-lg font-semibold py-2 text-center">Donors</div>
-      <div className="flex flex-wrap flex-row justify-between">
+      <div className="flex flex-wrap flex-col items-center md:flex-row justify-between">
         {donors.map((donor, index) => (
-          <div className="w-1/2 py-2 flex justify-center">
+          <div className="w-full md:w-1/2 py-2 flex justify-center">
             <div
               className={`flex max-w-full overflow-hidden items-center p-4 justify-center border-2 border-bg-bene-cmp-${ctheme} border-dashed rounded-lg`}>
               <img

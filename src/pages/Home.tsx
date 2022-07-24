@@ -70,12 +70,12 @@ function Home() {
       <div className="main-inner">
         <div className="main-inner-header row-2 min-h-v1screen flex flex-col justify-center">
           <div className="get-help-heading-with-beat relative overflow-hidden bg-bene-beat-bg bg-repeat-x bg-center">
-            <div className="main-inner-body row px-per-7 text-left md:px-per-15 lg:px-per-20 relative py-12">
+            <div className="main-inner-body bg-white sm:bg-transparent row px-per-7 text-left md:px-per-15 lg:px-per-20 relative py-12 rounded-md">
               <div className="main-inner-heading row-2 max-w-em-10 font-bold bg-white text-7xl">
-                <div className="main-inner-heading-text text-bene-dark-blue">
+                <div className="main-inner-heading-text text-bene-dark-blue text-4xl sm:text-7xl sm:min-h-62px">
                   {mpVariables.mpSec1Heading}
                 </div>
-                <div className="main-inner-heading-text text-bene-light-blue">
+                <div className="main-inner-heading-text text-bene-light-blue text-4xl sm:text-7xl sm:min-h-62px">
                   {mpVariables.mpSec1Heading2}
                 </div>
               </div>
@@ -133,7 +133,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="mp-ongoing-campaign-body row text-left p-10 px-20">
+        <div className="mp-ongoing-campaign-body row text-left p-10 sm:px-14 md:px-20">
           <h3 className="text-bxl font-semibold text-center sm:text-left mb-11 md:mb-6 ">
             Ongoing Campaigns
           </h3>

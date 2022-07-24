@@ -116,7 +116,7 @@ function ShareModal({
               Social:
             </h3>
           </div>
-          <div className="flex flex-row flex-wrap sm:flex-nowrap">
+          <div className="flex flex-row max-w-74vw md:max-w-none flex-wrap sm:flex-nowrap">
             {shareArr.map((share, index) =>
               share.category === 'social' ? (
                 <div className={`share-${share.icoName} p-4 pb-1`}>
@@ -142,7 +142,7 @@ function ShareModal({
               Personal:
             </h3>
           </div>
-          <div className="flex flex-row flex-wrap sm:flex-nowrap">
+          <div className="flex flex-row max-w-74vw md:max-w-none flex-wrap sm:flex-nowrap">
             {shareArr.map((share, index) =>
               share.category === 'personal' ? (
                 <div className={`share-${share.icoName} p-4 pb-1`}>
