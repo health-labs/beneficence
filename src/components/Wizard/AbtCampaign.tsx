@@ -25,6 +25,7 @@ const ConnectAr = async () => {
   });
   const jwk = wkey;
   const addr = await arweave.wallets.jwkToAddress(jwk);
+
   fundWallet(arweave, jwk);
   return { arweave, jwk, addr };
 };
@@ -272,11 +273,12 @@ export default function AbtCampaign() {
                       className="block text-sm font-medium leading-5 text-gray-700">
                       {inputs[1].label}
                       <textarea
-                        id="about"
-                        name="about"
+                        id={inputs[1].name}
+                        name={inputs[1].name}
                         rows={3}
                         className=" focus:ring-bene-dark-blue mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                         placeholder="Tell your story and explain your medical "
+                        value={inputs[1].value}
                         onChange={(e) => handleChange(e, inputs[1].name)}
                       />
                     </label>

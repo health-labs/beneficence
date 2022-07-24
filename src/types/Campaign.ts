@@ -19,6 +19,8 @@ export type CampaignCardProps = {
   link: string;
   angelsCount: number;
   campaignId: string;
+  collectedFund?: number;
+  id?: string;
 };
 
 export type CampaignCardProp = {

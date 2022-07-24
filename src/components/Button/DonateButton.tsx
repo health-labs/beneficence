@@ -8,6 +8,7 @@ interface DonateBtnProps {
   className?: string;
   amount?: number | 0;
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+  sid?: string;
 }
 
 function DonateButton(props: DonateBtnProps) {
@@ -19,7 +20,8 @@ function DonateButton(props: DonateBtnProps) {
     campaignid,
     className,
     amount,
-    onClick = () => onDonateBtnClick(campaignid),
+    sid = campaignid,
+    onClick = () => onDonateBtnClick(sid),
   } = props;
   const [custAmt, setCustAmt] = useState<string>('');
 

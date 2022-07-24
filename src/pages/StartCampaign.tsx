@@ -63,7 +63,7 @@ function StartCampaign() {
         </div>
       </div>
 
-      {wizrdNum !== wizrdIdx.length && (
+      {wizrdNum <= wizrdIdx.length && connected && (
         <WizardFooter
           onClickNxt={onClickNxt}
           wizrdNum={wizrdNum}

@@ -152,7 +152,7 @@ function CampaignPage() {
           <img
             src={image}
             alt={`${title} cover`}
-            className="w-beat-2 rounded-bene-c-2  w-full"
+            className="w-beat-2 rounded-bene-c-2 w-full"
           />
         </div>
 
@@ -168,7 +168,7 @@ function CampaignPage() {
         <div className="py-3 w-full py-auto px-0 overflow-hidden">
           <Tab.Group defaultIndex={0}>
             <Tab.List
-              className={`tab-list flex p-2 min-w-min space-x-1 bg-bene-cmp-${campThemeName} rounded-xl`}>
+              className={`tab-list flex p-2 lg:min-w-min overflow-x-scroll space-x-1 bg-bene-cmp-${campThemeName} rounded-xl`}>
               {tabTitles.map((tabt, index) => (
                 <Tab
                   disabled={!pouEnabled && index === 2}

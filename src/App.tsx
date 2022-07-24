@@ -13,7 +13,7 @@ import StartCampaign from './pages/StartCampaign';
 
 function App() {
   return (
-    <div className="App flex flex-col h-screen">
+    <div className="App flex flex-col min-h-screen">
       <AppCtxProvider>
         <Header />
         <BrowserRouter>

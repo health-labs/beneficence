@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import share from '../../assets/share.svg';
 import angels from '../../assets/angels.svg';
 import donate from '../../assets/donate.svg';
@@ -21,15 +22,31 @@ import PercentCircle from './Stats/PercentCircle';
 import ShareAction from '../Share/ShareAction';
 import useSingleModal from '../../hooks/useSingleModal';
 import ShareModal from '../Share/ShareModal';
+import OrgDetails from './Details/OrgDetails';
 
 function DonationCard(props: CampaignCardProps) {
-  const { imgSrc, title, description, link, angelsCount, campaignId } = props;
+  const {
+    imgSrc,
+    title,
+    description,
+    link,
+    angelsCount,
+    campaignId,
+    collectedFund = 30000,
+    id = campaignId,
+  } = props;
   const { handleModalAction } = useSingleModal();
+  const url = useLocation();
   return (
     <div>
-      <div className="campaign-outer-box rounded-bene-c-1 snap-center shadow-c-1 max-w-sm m-auto md:m-0">
-        <div className="campaign-img">
+      <div className="campaign-outer-box rounded-bene-c-1 snap-center shadow-c-1 max-w-sm m-auto">
+        <div className="campaign-img relative">
           <img src={campimg1} alt={title} className=" rounded-t-bene-c-1" />
+          <OrgDetails
+            orgName="John Doe"
+            orgLocation="Brazil"
+            className="absolute bottom-0 w-full"
+          />
         </div>
         <div className="campaign-body p-2">
           <div className="campaign-body-inner-box rounded-bene-c-2 p-2">
@@ -48,7 +65,7 @@ function DonationCard(props: CampaignCardProps) {
                 />
                 <PercentCircle />
                 <StatsDiv
-                  value={`$${amtAsM(30000)}`}
+                  value={`$${amtAsM(collectedFund)}`}
                   bgtype="bg-bene-dollar-lg max-w-per-33"
                   text="raised"
                 />
@@ -95,7 +112,7 @@ function DonationCard(props: CampaignCardProps) {
                   </div>
                 </div>
                 <div className="interaction-opt-inner-right">
-                  <DonateButton campaignid={campaignId} />
+                  <DonateButton campaignid={campaignId} sid={id} />
                 </div>
               </div>
             </div>

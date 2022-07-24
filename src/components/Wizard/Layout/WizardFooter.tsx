@@ -13,7 +13,13 @@ export default function WizardFooter({
     <div className="container mt-4 mb-2 flex justify-between px-4">
       <button
         type="button"
-        onClick={() => onClickNxt()}
+        onClick={
+          wizrdNum > 1
+            ? () => onClickNxt()
+            : () => {
+                console.log('You are at the first step');
+              }
+        }
         className={`cursor-pointer rounded-xl border-2 border-slate-300 bg-white py-2 px-4 font-semibold uppercase text-slate-400 transition duration-200 ease-in-out hover:bg-slate-700 hover:text-gray-800  ${
           wizrdNum === 1
             ? ' cursor-not-allowed opacity-50 '
@@ -24,9 +30,19 @@ export default function WizardFooter({
 
       <button
         type="button"
-        onClick={() => onClickNxt('next')}
-        className="cursor-pointer rounded-lg bg-bene-dark-blue py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:opacity-90">
-        {wizrdNum === wizrdIdx.length - 1 ? 'Confirm' : 'Next'}
+        onClick={
+          wizrdNum === wizrdIdx.length
+            ? () => {
+                console.log("you're on last step");
+              }
+            : () => onClickNxt('next')
+        }
+        className={`cursor-pointer rounded-lg bg-bene-dark-blue py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:opacity-90 ${
+          wizrdNum === wizrdIdx.length
+            ? ' cursor-not-allowed opacity-50 '
+            : 'text-white'
+        }`}>
+        Next
       </button>
     </div>
   );

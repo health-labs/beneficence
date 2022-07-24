@@ -108,3 +108,13 @@
     transform: rotate(360deg);
   }
 }
+
+.soclnk{
+  display: inline-block;
+}
+.soclnk:hover{
+  cursor: pointer;
+  scale: 1.1;
+  transition: all 1s ease-in-out;
+  transition-delay: 1500ms;
+}

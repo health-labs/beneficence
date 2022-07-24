@@ -83,6 +83,8 @@ module.exports = {
         'bene-dark-blue-75': '#003D84BF',
 
         'bene-overlay-backdrop': 'rgba(0, 0, 0, 0.86)',
+
+        'img-ovrlay': '#000000ab',
         ...customColorsLst,
       },
       fontSize: {
@@ -156,6 +158,8 @@ module.exports = {
         'cust-r-6': '6em',
 
         'per-5': '5%',
+
+        "0a" : '2px',
       },
       minWidth: {
         quarter: '25vw',
@@ -201,6 +205,7 @@ module.exports = {
         '85vh': '85vh',
         '48px': '48px',
         '33px': '33px',
+        'v1screen': 'calc(100vh - 30px)',
       },
       maxHeight: {
         'px-425': '425px',
@@ -229,7 +234,9 @@ module.exports = {
           'linear-gradient(220deg, rgb(19, 182, 182), rgb(56, 124, 173), rgb(22, 206, 236))',
         'bene-dim-end':
           'linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgba(209, 212, 213, 0.44) 20%, rgba(158, 161, 162, 0.03) 80%, rgb(0, 61, 132) 100%)',
-      },
+          'bene-on-hvr': 'linear-gradient(rgba(0, 0, 0, 0.15) 0 0)',
+        
+        },
       backgroundSize: {
         load: '700% 100%',
       },
@@ -321,6 +328,7 @@ module.exports = {
       visibility: ['hover', 'focus', 'group-hover'],
       transform: ['hover', 'group-hover'],
       translate: ['hover', 'group-hover'],
+      backgroundImage: ['hover', 'group-hover'],
     },
   },
 };

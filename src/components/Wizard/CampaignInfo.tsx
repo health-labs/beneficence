@@ -112,7 +112,7 @@ export default function CampaignInfo() {
         <div className="mt-5 md:mt-0 md:col-span-2 text-left">
           <form action="#" method="POST">
             <div className="shadow overflow-hidden sm:rounded-md">
-              <div className="px-4 py-5 bg-white sm:p-6">
+              <div className="px-4 py-5 bg-white sm:p-6 overflow-scroll">
                 <div className="grid grid-cols-6 gap-6">
                   {inputs.map((input: any) =>
                     input.type === 'select' ? (

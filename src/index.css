@@ -46,3 +46,7 @@ code {
 .wallet-adapter-modal-button-close svg {
   fill: #e0e0e1 !important;
 }
+
+.nav-scrolled {
+  display: none;
+}

@@ -4,6 +4,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import logo from '../../assets/logo.svg';
 import SignIn from '../Signin/SignIn';
 import logoSm from '../../assets/bene-logo-solo.svg';
+import logoWt from '../../assets/logo-white.svg';
 
 const classNames = (...classes: any) => {
   return classes.filter(Boolean).join(' ');
@@ -33,16 +34,32 @@ const navOptions = [
 ];
 
 function Header() {
+  const handleScroll = () => {
+    const nav = document.querySelector('.navbr');
+    if (window.scrollY < -650) {
+      nav?.classList.add('nav-scrolled');
+    } else {
+      nav?.classList.remove('nav-scrolled');
+    }
+  };
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <Disclosure
       as="nav"
-      className="bg-white sticky top-0 left-0 w-full h-auto z-10">
+      className="bg-white navbr sticky top-0 left-0 w-full h-auto z-10">
       {({ open }) => (
-        <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div className={`${open ? 'bg-bene-dark-blue' : ''}`}>
+          <div className="lg:max-w-90rem mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-blue-400 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-blue-400 hover:to-bene-dark-blue hover:bg-bene-on-hvr focus:outline-none">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -54,10 +71,14 @@ function Header() {
 
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
                 <div className="flex-shrink-0 flex items-center">
-                  <a href="/">
+                  <a
+                    href="/"
+                    className={`${open ? 'px-2 py-1 rounded-lg' : ''}`}>
                     <img
-                      className="block lg:hidden h-8 w-auto transform hover:rotate-360 transition duration-1000 ease-in"
-                      src={logoSm}
+                      className={`block lg:hidden h-8 w-auto transform hover:rotate-360 transition duration-1000 ease-in ${
+                        open ? 'rotate-360' : 'rotate-0'
+                      }`}
+                      src={open ? logoWt : logoSm}
                       alt="Beneficence"
                     />
                     <img
@@ -76,7 +97,7 @@ function Header() {
                         className={classNames(
                           opt.active
                             ? 'text-blue-900'
-                            : 'text-bene-nav-blue hover:text-blue-900 hover:text-white',
+                            : 'text-bene-nav-blue hover:text-blue-900',
                           'px-3 py-2 rounded-md text-xl font-semibold transform hover:scale-105 transition duration-450 ease-in'
                         )}>
                         {opt.item}
@@ -92,7 +113,7 @@ function Header() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col text-left">
               {navOptions.map((opt) => (
                 <Disclosure.Button
                   key={opt.item}
@@ -100,8 +121,8 @@ function Header() {
                   href={opt.link}
                   className={classNames(
                     opt.active
-                      ? 'bg-blue-900 text-white'
-                      : 'text-bene-nav-blue hover:text-blue-900 hover:text-white',
+                      ? ' text-bene-nav-blue'
+                      : ' text-white hover:opacity-95 hover:bg-bene-on-hvr',
                     'px-3 py-2 rounded-md text-sm font-medium'
                   )}>
                   {opt.item}
@@ -109,7 +130,7 @@ function Header() {
               ))}
             </div>
           </Disclosure.Panel>
-        </>
+        </div>
       )}
     </Disclosure>
   );

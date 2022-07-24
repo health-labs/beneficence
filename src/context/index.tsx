@@ -1,7 +1,8 @@
 import React, { Children } from 'react';
 import { LoadingAppProvider } from './LoadingApp';
-import { SingleModalProvider } from './SingleModalContext';
 import { WalletConnectContextProvider } from './WalletConnectContextProvider';
+import Modal from '../components/Modal/Modal';
+import { SingleModalProvider } from './SingleModalContext';
 
 export default function AppCtxProvider({
   children,
@@ -11,7 +12,10 @@ export default function AppCtxProvider({
   return (
     <WalletConnectContextProvider>
       <LoadingAppProvider>
-        <SingleModalProvider>{children}</SingleModalProvider>
+        <SingleModalProvider>
+          {children}
+          <Modal />
+        </SingleModalProvider>
       </LoadingAppProvider>
     </WalletConnectContextProvider>
   );

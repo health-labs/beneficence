@@ -1,5 +1,4 @@
 import React, { createContext, useMemo } from 'react';
-import Modal from '../components/Modal/Modal';
 
 export type SingleModalContextType = {
   isOpen: boolean;
@@ -48,7 +47,6 @@ export function SingleModalProvider({
 
   return (
     <SingleModalContext.Provider value={value}>
-      <Modal />
       {children}
     </SingleModalContext.Provider>
   );

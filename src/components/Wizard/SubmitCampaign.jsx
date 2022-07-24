@@ -1,5 +1,15 @@
 import React, { useEffect } from 'react';
 import Arweave from 'arweave';
+import { useWallet } from '@solana/wallet-adapter-react';
+import {
+  PublicKey,
+  Connection,
+  Transaction,
+  SystemProgram,
+  TransactionInstruction,
+  TransactionResponse,
+} from '@solana/web3.js';
+import { serialize, deserialize } from 'borsh';
 import { JWKInterface } from 'arweave/node/lib/wallet';
 import Multiselect from 'multiselect-react-dropdown';
 import useWizardContext from '../../hooks/useWizard';
@@ -28,7 +38,120 @@ const ConnectAr = async () => {
   fundWallet(arweave, jwk);
   return { arweave, jwk, addr };
 };
+const rpc = 'https://api.devnet.solana.com';
+const conn = new Connection(rpc, 'confirmed');
+export const pgid = new PublicKey(
+  '2c3CwTUi2x6thvNfCzJm7mr1hL53mjohyf1uuYurKHMA'
+);
+export async function setPayerAndBlockhashTransaction(
+  instructions: any,
+  publicKey: PublicKey
+) {
+  const transaction = new Transaction();
+  instructions.forEach((element: any) => {
+    transaction.add(element);
+  });
+  transaction.feePayer = publicKey;
+  const hash = await conn.getLatestBlockhash();
+  transaction.recentBlockhash = hash.blockhash;
+  return transaction;
+}
+
+export async function signAndSendTransaction(
+  transaction: Transaction,
+  signTransaction: any
+) {
+  try {
+    const signedTrans = await signTransaction(transaction);
+    const signature = await conn.sendRawTransaction(signedTrans.serialize());
+    return signature;
+  } catch (err) {
+    console.log('signAndSendTransaction error', err);
+    throw err;
+  }
+}
+
+export class CampaignInfo {
+  constructor(properties: any) {
+    Object.assign(this, properties);
+  }
+
+  static schema: any = new Map([
+    [
+      CampaignInfo,
+      {
+        kind: 'struct',
+        fields: [
+          ['id', 'string'],
+          ['organiser_pubkey', [32]],
+          ['collected_fund', 'u64'],
+          ['pkstr', 'string'],
+        ],
+      },
+    ],
+  ]);
+}
+
+export async function createCampaign(
+  id: string,
+  publicKey: PublicKey,
+  signTransaction: any,
+  connected: boolean,
+  connect: any
+) {
+  if (!connected) {
+    await connect();
+  }
+  const SEED = `bene${Math.random().toString()}`;
+  const newAccount = await PublicKey.createWithSeed(publicKey, SEED, pgid);
+  const campaign = new CampaignInfo({
+    id,
+    organiser_pubkey: publicKey.toBuffer(),
+    collected_fund: 0,
+    pkstr: publicKey.toString(),
+  });
+  console.log('organiser_pubkey: ', publicKey.toString());
+  const data = serialize(CampaignInfo.schema, campaign);
+  const toSend = new Uint8Array([0, ...data]);
+
+  const lamports = await conn.getMinimumBalanceForRentExemption(data.length);
+  console.log(data.length);
+  const createProgramAccount = SystemProgram.createAccountWithSeed({
+    fromPubkey: publicKey,
+    basePubkey: publicKey,
+    seed: SEED,
+    newAccountPubkey: newAccount,
+    lamports,
+    space: data.length,
+    programId: pgid,
+  });
+
+  const instructionTOOurProgram = new TransactionInstruction({
+    keys: [
+      { pubkey: newAccount, isSigner: false, isWritable: true },
+      { pubkey: publicKey, isSigner: true, isWritable: false },
+    ],
+    programId: pgid,
+    data: toSend,
+  });
+
+  const trans = await setPayerAndBlockhashTransaction(
+    [createProgramAccount, instructionTOOurProgram],
+    publicKey
+  );
+  const signature = await signAndSendTransaction(trans, signTransaction);
+  const result = await conn.confirmTransaction(signature);
+  const cluster = 'devnet';
+  window.open(
+    `https://explorer.solana.com/tx/${signature}?cluster=${cluster}`,
+    '_blank'
+  );
+  console.log('end sendMessage', result);
+}
+
 export default function SubmitCampaign() {
+  const { publicKey, signTransaction, wallet, connected, connect } =
+    useWallet();
   const {
     ponInfo,
     setPonInfo,
@@ -58,9 +181,6 @@ export default function SubmitCampaign() {
     const { arweave, jwk } = await ConnectAr();
     const fileread = new window.FileReader();
     fileread.readAsArrayBuffer(fileblb);
-    fileread.onloadend = () => {
-      uploadAsBuffer(fileread.result as ArrayBuffer);
-    };
     const uploadAsBuffer = async (fr: ArrayBuffer) => {
       const fileBuffer = await Buffer.from(fr);
       const fileType = fileblb?.type;
@@ -96,7 +216,7 @@ export default function SubmitCampaign() {
         console.log('Block mined');
         setUploadStatus('');
         setIsUploading(false);
-        const imgSrc = `https://arweave.net/${txn.id}`;
+        const imgSrc = `localhost:1984/${txn.id}`;
         setPonInfo({
           ...ponInfo,
           imgArr: [...ponInfo.imgArr, imgSrc],
@@ -106,6 +226,9 @@ export default function SubmitCampaign() {
       } else {
         alert('File size is too large');
       }
+    };
+    fileread.onloadend = () => {
+      uploadAsBuffer(fileread.result);
     };
   };
 
@@ -146,6 +269,13 @@ export default function SubmitCampaign() {
     const mined = await arweave.transactions.get(txn.id);
     console.log('Block mined');
     window.open(`localhost:1984/${txn.id}`, '_blank');
+    createCampaign(
+      `${campaignInfo.id},${txn.id},t1`,
+      publicKey,
+      signTransaction,
+      connected,
+      connect
+    );
   };
 
   const inputs = [
@@ -160,7 +290,7 @@ export default function SubmitCampaign() {
       name: 'description',
       label: 'Proof of need',
       type: 'textarea',
-      value: campaignInfo.description,
+      value: ponInfo.description,
       col: '',
     },
     {
@@ -215,7 +345,7 @@ export default function SubmitCampaign() {
                             <label
                               htmlFor="file-upload"
                               className="relative cursor-pointer bg-white rounded-md font-medium hover:text-bene-light-blue text-bene-dark-blue">
-                              <span>Upload a cover image</span>
+                              <span>Upload proof of need</span>
                               <input
                                 id={inputs[3].name}
                                 name={inputs[3].name}
@@ -284,11 +414,12 @@ export default function SubmitCampaign() {
                       className="block text-sm font-medium leading-5 text-gray-700">
                       {inputs[1].label}
                       <textarea
-                        id="about"
-                        name="about"
+                        id={inputs[1].name}
+                        name={inputs[1].name}
                         rows={3}
                         className=" focus:ring-bene-dark-blue mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                        placeholder="Tell your story and explain your medical "
+                        placeholder="Describe why you need help and a brief description of proofs"
+                        value={inputs[1].value}
                         onChange={(e) => handleChange(e, inputs[1].name)}
                       />
                     </label>

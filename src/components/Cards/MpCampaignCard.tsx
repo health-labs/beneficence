@@ -4,10 +4,20 @@ import angels from '../../assets/angels.svg';
 import donate from '../../assets/donate.svg';
 import campimg1 from '../../assets/campimg-1.png';
 import { campColors } from '../../const/campColors';
-import { formatTitle, generateRandomCardBg } from '../../utils/util';
+import {
+  amtAsM,
+  amtToStr,
+  formatTitle,
+  generateRandomCardBg,
+} from '../../utils/util';
 import dashedsep from '../../assets/dashedsep.svg';
 import DonateButtonSmall from '../Button/DonateButtonSmall';
 import { CampaignCardProps } from '../../types/Campaign';
+
+const progressPerAsFive = (current: number, total: number) => {
+  const percent = (current / total) * 100;
+  return Math.round(percent / 5) * 5;
+};
 
 function MpCampaignCard(props: CampaignCardProps) {
   const { imgSrc, title, description, link, angelsCount, campaignId } = props;
@@ -30,9 +40,19 @@ function MpCampaignCard(props: CampaignCardProps) {
           </div>
           <div className="campaign-progress">
             <div className="campaign-progress-percent">
-              <div className="campaign-total-val"> </div>
-              <div className="campaign-progress-bar">
-                <div className="campaign-progress-bar-inner"> </div>
+              <div className="flex justify-between text-bene-dark-blue text-xl">
+                <div className="campaign-total-val-per">
+                  {progressPerAsFive(30000, 50000)}%
+                </div>
+                <div className="campaign-total-val">${amtAsM(30000)}</div>
+              </div>
+              <div className="campaign-progress-bar bg-white rounded-bene-c-1 h-2 w-full mb-2">
+                <div
+                  className={`campaign-progress-bar-inner h-2 bg-bene-dark-blue rounded-bene-c-1 w-per-${progressPerAsFive(
+                    30000,
+                    50000
+                  )}`}
+                />
               </div>
             </div>
             <div className="interaction-opt flex justify-between">

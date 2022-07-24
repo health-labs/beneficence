@@ -24,13 +24,14 @@
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [".tsx"]
-      }
-    ],
+        "extensions": [".tsx" , ".jsx"]
+      }],
     "import/extensions": [
       "error",
       "ignorePackages",
       {
+        "js": "never",
+        "jsx": "never",
         "ts": "never",
         "tsx": "never"
       }
@@ -51,8 +52,11 @@
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   },
   "settings": {
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
     "import/resolver": {
-      "typescript": {}
+      "typescript": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
   }
 }
