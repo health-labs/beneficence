@@ -2,6 +2,9 @@
   "name": "beneficence",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node":"16.16.0"
+  },
   "dependencies": {
     "@craco/craco": "^6.4.3",
     "@headlessui/react": "^1.4.3",
