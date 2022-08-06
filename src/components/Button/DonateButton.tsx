@@ -13,7 +13,7 @@ interface DonateBtnProps {
 
 function DonateButton(props: DonateBtnProps) {
   const onDonateBtnClick = (campaignid: string) => {
-    const goCampaignUrl = `/campaign/${campaignid}`;
+    const goCampaignUrl = `/campaign/${campaignid}/1`;
     window.location.href = goCampaignUrl;
   };
   const {

@@ -34,22 +34,6 @@ const navOptions = [
 ];
 
 function Header() {
-  const handleScroll = () => {
-    const nav = document.querySelector('.navbr');
-    if (window.scrollY < -650) {
-      nav?.classList.add('nav-scrolled');
-    } else {
-      nav?.classList.remove('nav-scrolled');
-    }
-  };
-
-  React.useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <Disclosure
       as="nav"

@@ -11,6 +11,7 @@ import useCopyText from '../../hooks/useCopyText';
 import successCamp from '../../assets/success-camp.svg';
 import failedCamp from '../../assets/failed-camp.svg';
 import useSingleModal from '../../hooks/useSingleModal';
+import Close from '../Button/Close';
 
 function ShareModal({
   id,
@@ -89,18 +90,10 @@ function ShareModal({
   return (
     <div
       className={`flex flex-col p-6 absolute inset-0 m-auto max-w-md max-h-33rem h-33rem min-w-min w-per-70 filter-bene-2 bg-white rounded-bene-c-2 ${className}`}>
-      <button
-        type="button"
-        className="z-7 w-fit flex justify-end absolute right-5 hover:opacity-75 transition ease-in-out duration-250 transform hover:rotate-90"
-        onClick={handleModalAction}>
-        <svg className="w-5 h-5" role="button" viewBox="0 0 20 20">
-          <path
-            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-            clipRule="evenodd"
-            fillRule="evenodd"
-          />
-        </svg>
-      </button>
+      <Close
+        onClick={handleModalAction}
+        className="z-7 absolute right-5 flex justify-end "
+      />
       <div className="font-bold text-bene-dark-blue text-3xl">
         Help {organiser}
       </div>
@@ -194,7 +187,9 @@ function ShareModal({
         open respective sharing option with a pre loaded template. You will have
         to click share for the action to complete successfully.
       </div>
-      <div className="text-center">{title} on Beneficence.</div>
+      <div className="text-center text-gray-400 text-sm">
+        {title} on Beneficence.
+      </div>
     </div>
   );
 }

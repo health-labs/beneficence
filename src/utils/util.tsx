@@ -1,8 +1,8 @@
 import { campColors } from '../const/campColors';
 
 export const generateRandomCardBg = () => {
-  const randomIndex = Math.floor(Math.random() * campColors.length);
-  return campColors[randomIndex];
+  const i = Math.floor(Math.random() * campColors.length);
+  return campColors[i];
 };
 
 export const formatTitle = (title: string) => {
@@ -74,4 +74,16 @@ export const formattedUserId = (pk: string, email: string) => {
     1,
     3
   )}${dateAsTimeStamp()}${pk}`;
+};
+
+export const pkColor = (pk: string) => {
+  const pkEval = pk.split('').reduce((acc, val) => {
+    return acc + val.charCodeAt(0);
+  }, 0);
+  const i = Math.floor(pkEval % campColors.length);
+  return campColors[i];
+};
+
+export const openPkOnExplorer = (pk: string, e: any) => {
+  window.open(`https://explorer.solana.com/address/${pk}`, '_blank');
 };

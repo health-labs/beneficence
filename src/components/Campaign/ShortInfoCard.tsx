@@ -29,7 +29,7 @@ function ShortInfoCard({ data, ctheme }: any) {
 
   return (
     <div
-      className={`organiser grid gap-4 p-4 rounded-bene-c-2 bg-bene-cmp-${ctheme}`}>
+      className={`organiser ogninf grid gap-4 p-4 rounded-bene-c-2 bg-bene-cmp-${ctheme}`}>
       <div className="progress">
         <Progress
           color={formattedHex}

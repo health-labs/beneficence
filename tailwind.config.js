@@ -73,6 +73,10 @@ module.exports = {
       sans: ['Inter var', 'Raleway', ...defaultTheme.fontFamily.sans],
     },
     extend: {
+      screens:{
+        '2xl': '1440px',
+        'mmd': '925px',
+      },
       colors: {
         'bene-green-blue': '#4CEBD1',
         'bene-light-blue': '#168AF4',
@@ -170,6 +174,9 @@ module.exports = {
         'em-20': '20em',
 
         '30px': '30px',
+        '320px': '320px',
+
+        '40vw': '40vw',
       },
       maxWidth: {
         'em-16': '16em',
@@ -199,6 +206,8 @@ module.exports = {
         'per-65': '65%',
         'per-98': '98%',
 
+        '34vw': '34vw',
+        '40vw': '40vw',
         '60vw': '60vw',
         '74vw': '74vw',
         '80vw': '80vw',
@@ -239,13 +248,22 @@ module.exports = {
         'bene-dim-end':
           'linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgba(209, 212, 213, 0.44) 20%, rgba(158, 161, 162, 0.03) 80%, rgb(0, 61, 132) 100%)',
           'bene-on-hvr': 'linear-gradient(rgba(0, 0, 0, 0.15) 0 0)',
+          'bene-cvote-bg': 'url(./assets/cvotebg.png)',
         
         },
       backgroundSize: {
         load: '700% 100%',
       },
+      backgroundPosition:{
+        'right-8': "center right 8rem"
+      },
       boxShadow: {
         'c-1': '0px 6px 33px rgba(0, 0, 0, 0.16)',
+        'c-sf': '0px 5px 28px rgba(0, 0, 0, .14), 0px 3px 15px rgba(0, 0, 0, .06)',
+      },
+      dropShadow: {
+        'c-1': '0px 6px 33px rgba(0, 0, 0, 0.16)',
+        'c-2': '2px 2px 20px rgba(0, 0, 0, 0.1)'
       },
       rotate: { 360: '360deg' },
       animation: {
@@ -258,6 +276,10 @@ module.exports = {
           '1.5s ease-in-out infinite alternate-reverse both loading-bene-2',
         'loading-bg':
           '10s ease 0s infinite alternate-reverse both running loading-bg',
+          "entrfrmbtm": "entrfrmbtm 0.3s cubic-bezier(0.23, 0.56, 0.4, 0.98) both",
+          "exittobtm": "exittobtm  0.3s cubic-bezier(0.5, 0.05, 0.65, 0.16) both",
+          'bginfy': 'bginfy 1s linear infinite',
+
       },
       keyframes: {
         'load-component-logo': {
@@ -321,6 +343,31 @@ module.exports = {
             'background-position': '0% 50%',
           },
         },
+        "entrfrmbtm": {
+          "0%": {
+              transform: "translateY(1000px)",
+              opacity: "0"
+          },
+          to: {
+              transform: "translateY(0)",
+              opacity: "1"
+          }
+      },
+      "exittobtm": {
+
+        "0%": {
+            transform: "translateY(0)",
+            opacity: "1"
+        },
+        to: {
+            transform: "translateY(1000px)",
+            opacity: "0"
+        }
+    },
+      'bginfy': {
+        '0%': { 'background-position': '0 0' },
+        '100%': { 'background-position': '1870px 0%' },
+      },
       },
     },
   },

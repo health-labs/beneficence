@@ -21,6 +21,9 @@ export type CampaignCardProps = {
   campaignId: string;
   collectedFund?: number;
   id?: string;
+  orgName?: string;
+  orgPubkey?: string;
+  orgLoc?: string;
 };
 
 export type CampaignCardProp = {

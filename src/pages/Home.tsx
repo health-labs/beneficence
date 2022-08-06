@@ -69,7 +69,7 @@ function Home() {
     <div className="main-outer">
       <div className="main-inner">
         <div className="main-inner-header row-2 min-h-v1screen flex flex-col justify-center">
-          <div className="get-help-heading-with-beat relative overflow-hidden bg-bene-beat-bg bg-repeat-x bg-center">
+          <div className="get-help-heading-with-beat relative overflow-hidden bg-bene-beat-bg bg-repeat-x bg-right-8 animate-bginfy">
             <div className="main-inner-body bg-white sm:bg-transparent row px-per-7 text-left md:px-per-15 lg:px-per-20 relative py-12 rounded-md">
               <div className="main-inner-heading row-2 max-w-em-10 font-bold bg-white text-7xl">
                 <div className="main-inner-heading-text text-bene-dark-blue text-4xl sm:text-7xl sm:min-h-62px">
